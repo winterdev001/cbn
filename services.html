@@ -90,14 +90,15 @@
                             <ul>
                                 <li><a href="index.html">Home</a></li>
                                 <li><a href="about.html">About</a></li>
-                                <li class="active"><a href="services.html">Services</a></li>                                
+                                <li class="active"><a href="services.html">Services</a></li>
                                 <li><a href="contact.html">Contact</a></li>
                                 <li><a href="faq.html">FAQ</a></li>
                                 <li ng-show="admin_link"><a href="admin.html">Admin</a></li>
                             </ul>
                         </nav>
                         <div class="header__btn">
-                            <a href="#make_appointment" class="primary-btn">Appointment</a>
+                            <a href="#" data-toggle="modal" data-target="#book_appointment"
+                                class="primary-btn">Appointment</a>
                         </div>
                     </div>
                 </div>
@@ -137,65 +138,73 @@
                         <!-- service1 -->
                         <div class="mt-5" ng-show="service1">
                             <div class="row row-cols-1 row-cols-md-3">
-                                
+
                                 <div class="col mb-4">
                                     <div class="card">
-                                        <img src="img/services/undraw_medical_care_movn.svg" class="card-img-top" alt="...">
+                                        <img src="img/services/undraw_medical_care_movn.svg" class="card-img-top"
+                                            alt="...">
                                         <div class="card-body">
-                                            <h5 class="card-title">Contraception</h5>                                            
+                                            <h5 class="card-title">Contraception</h5>
                                         </div>
                                     </div>
                                 </div>
-                                
+
                                 <div class="col mb-4">
                                     <div class="card">
-                                        <img src="img/services/undraw_medical_care_movn.svg" class="card-img-top" alt="...">
+                                        <img src="img/services/undraw_medical_care_movn.svg" class="card-img-top"
+                                            alt="...">
                                         <div class="card-body">
-                                            <h5 class="card-title">General physicals</h5>                                            
+                                            <h5 class="card-title">General physicals</h5>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="col mb-4">
                                     <div class="card">
-                                        <img src="img/services/undraw_medical_care_movn.svg" class="card-img-top" alt="...">
+                                        <img src="img/services/undraw_medical_care_movn.svg" class="card-img-top"
+                                            alt="...">
                                         <div class="card-body">
-                                            <h5 class="card-title">Pelvic exams</h5>                                            
-                                        </div>
-                                    </div>
-                                </div>                                
-                                <div class="col mb-4">
-                                    <div class="card">
-                                        <img src="img/services/undraw_medical_care_movn.svg" class="card-img-top" alt="...">
-                                        <div class="card-body">
-                                            <h5 class="card-title">Pap smears</h5>                                            
-                                        </div>
-                                    </div>
-                                </div>   
-                                <div class="col mb-4">
-                                    <div class="card">
-                                        <img src="img/services/undraw_medical_care_movn.svg" class="card-img-top" alt="...">
-                                        <div class="card-body">
-                                            <h5 class="card-title">Immunizations and injections</h5>                                            
-                                        </div>
-                                    </div>
-                                </div>                             
-                                <div class="col mb-4">
-                                    <div class="card">
-                                        <img src="img/services/undraw_medical_care_movn.svg" class="card-img-top" alt="...">
-                                        <div class="card-body">
-                                            <h5 class="card-title">Breast exams/self-examination education</h5>                                            
-                                        </div>
-                                    </div>
-                                </div>                                
-                                <div class="col mb-4">
-                                    <div class="card">
-                                        <img src="img/services/undraw_medical_care_movn.svg" class="card-img-top" alt="...">
-                                        <div class="card-body">
-                                            <h5 class="card-title">General gynecology (adults, pediatric and adolescent)</h5>                                            
+                                            <h5 class="card-title">Pelvic exams</h5>
                                         </div>
                                     </div>
                                 </div>
-                                
+                                <div class="col mb-4">
+                                    <div class="card">
+                                        <img src="img/services/undraw_medical_care_movn.svg" class="card-img-top"
+                                            alt="...">
+                                        <div class="card-body">
+                                            <h5 class="card-title">Pap smears</h5>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col mb-4">
+                                    <div class="card">
+                                        <img src="img/services/undraw_medical_care_movn.svg" class="card-img-top"
+                                            alt="...">
+                                        <div class="card-body">
+                                            <h5 class="card-title">Immunizations and injections</h5>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col mb-4">
+                                    <div class="card">
+                                        <img src="img/services/undraw_medical_care_movn.svg" class="card-img-top"
+                                            alt="...">
+                                        <div class="card-body">
+                                            <h5 class="card-title">Breast exams/self-examination education</h5>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col mb-4">
+                                    <div class="card">
+                                        <img src="img/services/undraw_medical_care_movn.svg" class="card-img-top"
+                                            alt="...">
+                                        <div class="card-body">
+                                            <h5 class="card-title">General gynecology (adults, pediatric and adolescent)
+                                            </h5>
+                                        </div>
+                                    </div>
+                                </div>
+
                             </div>
                         </div>
                         <!-- service1 end -->
@@ -206,7 +215,7 @@
                                     <div class="card">
                                         <img src="img/services/obstetric.jpg" class="card-img-top" alt="...">
                                         <div class="card-body">
-                                            <h5 class="card-title">Prenatal and post-natal consultation</h5>                                            
+                                            <h5 class="card-title">Prenatal and post-natal consultation</h5>
                                         </div>
                                     </div>
                                 </div>
@@ -214,7 +223,7 @@
                                     <div class="card">
                                         <img src="img/services/obstetric.jpg" class="card-img-top" alt="...">
                                         <div class="card-body">
-                                            <h5 class="card-title">Consultation of high risk pregnancies</h5>                                            
+                                            <h5 class="card-title">Consultation of high risk pregnancies</h5>
                                         </div>
                                     </div>
                                 </div>
@@ -228,7 +237,7 @@
                                     <div class="card">
                                         <img src="img/services/ultrasound-machine.jpg" class="card-img-top" alt="...">
                                         <div class="card-body">
-                                            <h5 class="card-title">Gynecologic</h5>                                            
+                                            <h5 class="card-title">Gynecologic</h5>
                                         </div>
                                     </div>
                                 </div>
@@ -236,7 +245,7 @@
                                     <div class="card">
                                         <img src="img/services/ultrasound-machine.jpg" class="card-img-top" alt="...">
                                         <div class="card-body">
-                                            <h5 class="card-title">Transabdominal</h5>                                            
+                                            <h5 class="card-title">Transabdominal</h5>
                                         </div>
                                     </div>
                                 </div>
@@ -244,7 +253,7 @@
                                     <div class="card">
                                         <img src="img/services/ultrasound-machine.jpg" class="card-img-top" alt="...">
                                         <div class="card-body">
-                                            <h5 class="card-title">Transrectal</h5>                                            
+                                            <h5 class="card-title">Transrectal</h5>
                                         </div>
                                     </div>
                                 </div>
@@ -252,7 +261,7 @@
                                     <div class="card">
                                         <img src="img/services/ultrasound-machine.jpg" class="card-img-top" alt="...">
                                         <div class="card-body">
-                                            <h5 class="card-title">Abdominal Ultrasound</h5>                                            
+                                            <h5 class="card-title">Abdominal Ultrasound</h5>
                                         </div>
                                     </div>
                                 </div>
@@ -260,7 +269,7 @@
                                     <div class="card">
                                         <img src="img/services/ultrasound-machine.jpg" class="card-img-top" alt="...">
                                         <div class="card-body">
-                                            <h5 class="card-title">Transvaginal Ultrasound</h5>                                           
+                                            <h5 class="card-title">Transvaginal Ultrasound</h5>
                                         </div>
                                     </div>
                                 </div>
@@ -268,7 +277,7 @@
                                     <div class="card">
                                         <img src="img/services/ultrasound-machine.jpg" class="card-img-top" alt="...">
                                         <div class="card-body">
-                                            <h5 class="card-title">Pelvic Ultrasound Imaging</h5>                                            
+                                            <h5 class="card-title">Pelvic Ultrasound Imaging</h5>
                                         </div>
                                     </div>
                                 </div>
@@ -276,7 +285,7 @@
                                     <div class="card">
                                         <img src="img/services/ultrasound-machine.jpg" class="card-img-top" alt="...">
                                         <div class="card-body">
-                                            <h5 class="card-title">Obstetric Ultrasound Imaging</h5>                                            
+                                            <h5 class="card-title">Obstetric Ultrasound Imaging</h5>
                                         </div>
                                     </div>
                                 </div>
@@ -284,7 +293,7 @@
                                     <div class="card">
                                         <img src="img/services/ultrasound-machine.jpg" class="card-img-top" alt="...">
                                         <div class="card-body">
-                                            <h5 class="card-title">Carotid & Abdominal Aorta Ultrasound Imaging</h5>                                            
+                                            <h5 class="card-title">Carotid & Abdominal Aorta Ultrasound Imaging</h5>
                                         </div>
                                     </div>
                                 </div>
@@ -296,28 +305,31 @@
                             <div class="row row-cols-1 row-cols-md-2">
                                 <div class="col mb-4">
                                     <div class="card">
-                                        <img src="img/services/pexels-pixabay-248152.jpg" class="card-img-top" alt="...">
+                                        <img src="img/services/pexels-pixabay-248152.jpg" class="card-img-top"
+                                            alt="...">
                                         <div class="card-body">
-                                            <h5 class="card-title">General Laboratory screening</h5>                                            
+                                            <h5 class="card-title">General Laboratory screening</h5>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="col mb-4">
                                     <div class="card">
-                                        <img src="img/services/pexels-pixabay-248152.jpg" class="card-img-top" alt="...">
+                                        <img src="img/services/pexels-pixabay-248152.jpg" class="card-img-top"
+                                            alt="...">
                                         <div class="card-body">
-                                            <h5 class="card-title">Hormonal laboratory</h5>                                            
+                                            <h5 class="card-title">Hormonal laboratory</h5>
                                         </div>
                                     </div>
-                                </div> 
+                                </div>
                                 <div class="col mb-4">
                                     <div class="card">
-                                        <img src="img/services/pexels-pixabay-248152.jpg" class="card-img-top" alt="...">
+                                        <img src="img/services/pexels-pixabay-248152.jpg" class="card-img-top"
+                                            alt="...">
                                         <div class="card-body">
-                                            <h5 class="card-title">Gynecologic Labo and pre/post-surgery</h5>                                            
+                                            <h5 class="card-title">Gynecologic Labo and pre/post-surgery</h5>
                                         </div>
                                     </div>
-                                </div>                                                               
+                                </div>
                             </div>
                         </div>
                         <!-- service4 end -->
@@ -326,28 +338,31 @@
                             <div class="row row-cols-1 row-cols-md-2">
                                 <div class="col mb-4">
                                     <div class="card">
-                                        <img src="img/services/pexels-baby-concept-3169971.jpg" class="card-img-top" alt="...">
+                                        <img src="img/services/pexels-baby-concept-3169971.jpg" class="card-img-top"
+                                            alt="...">
                                         <div class="card-body">
-                                            <h5 class="card-title">Normal delivery </h5>                                            
+                                            <h5 class="card-title">Normal delivery </h5>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="col mb-4">
                                     <div class="card">
-                                        <img src="img/services/pexels-baby-concept-3169971.jpg" class="card-img-top" alt="...">
+                                        <img src="img/services/pexels-baby-concept-3169971.jpg" class="card-img-top"
+                                            alt="...">
                                         <div class="card-body">
-                                            <h5 class="card-title">Obstructed labor</h5>                                            
+                                            <h5 class="card-title">Obstructed labor</h5>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="col mb-4">
                                     <div class="card">
-                                        <img src="img/services/pexels-baby-concept-3169971.jpg" class="card-img-top" alt="...">
+                                        <img src="img/services/pexels-baby-concept-3169971.jpg" class="card-img-top"
+                                            alt="...">
                                         <div class="card-body">
-                                            <h5 class="card-title">Eutocic childbirth</h5>                                            
+                                            <h5 class="card-title">Eutocic childbirth</h5>
                                         </div>
                                     </div>
-                                </div>                               
+                                </div>
                             </div>
                         </div>
                         <!-- service5 end -->
@@ -356,7 +371,8 @@
                             <div class="row row-cols-1 row-cols-md-2">
                                 <div class="col mb-4">
                                     <div class="card">
-                                        <img src="img/services/pexels-vidal-balielo-jr-1250655.jpg" class="card-img-top" alt="...">
+                                        <img src="img/services/pexels-vidal-balielo-jr-1250655.jpg" class="card-img-top"
+                                            alt="...">
                                         <div class="card-body">
                                             <h5 class="card-title">General </h5>
                                         </div>
@@ -364,7 +380,8 @@
                                 </div>
                                 <div class="col mb-4">
                                     <div class="card">
-                                        <img src="img/services/pexels-vidal-balielo-jr-1250655.jpg" class="card-img-top" alt="...">
+                                        <img src="img/services/pexels-vidal-balielo-jr-1250655.jpg" class="card-img-top"
+                                            alt="...">
                                         <div class="card-body">
                                             <h5 class="card-title">Flame</h5>
                                         </div>
@@ -372,9 +389,10 @@
                                 </div>
                                 <div class="col mb-4">
                                     <div class="card">
-                                        <img src="img/services/pexels-vidal-balielo-jr-1250655.jpg" class="card-img-top" alt="...">
+                                        <img src="img/services/pexels-vidal-balielo-jr-1250655.jpg" class="card-img-top"
+                                            alt="...">
                                         <div class="card-body">
-                                            <h5 class="card-title">Hyprestotic</h5>                                            
+                                            <h5 class="card-title">Hyprestotic</h5>
                                         </div>
                                     </div>
                                 </div>
@@ -471,7 +489,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="services__appoinment">
+                    <!-- <div class="services__appoinment">
                         <div class="services__title">
                             <h4><img src="img/icons/services-icon.png" alt=""> Get an appointment</h4>
                         </div>
@@ -491,7 +509,7 @@
                             </select>
                             <button type="submit" class="site-btn">Book appoitment</button>
                         </form>
-                    </div>
+                    </div> -->
                 </div>
             </div>
         </div>
@@ -533,9 +551,9 @@
                     <div class="footer__widget">
                         <h5>Company</h5>
                         <ul>
-                            <li><a href="#make_appointment">Appointment</a></li>
+                            <li><a href="#" data-toggle= "modal" data-target="#book_appointment">Appointment</a></li>
                             <li><a href="about.html">About Us</a></li>
-                            <li><a href="services.html">Services</a></li>                            
+                            <li><a href="services.html">Services</a></li>
                             <li><a href="contact.html">Contact</a></li>
                             <li><a href="faq.html">FAQ</a></li>
                         </ul>
@@ -565,8 +583,7 @@
                 </div>
                 <div class="col-lg-4 col-md-12 col-sm-6">
                     <div class="footer__map">
-                        <iframe
-                            src="https://maps.google.com/maps?q=clinique%20bien&t=&z=13&ie=UTF8&iwloc=&output=embed"
+                        <iframe src="https://maps.google.com/maps?q=clinique%20bien&t=&z=13&ie=UTF8&iwloc=&output=embed"
                             height="190" style="border:0" allowfullscreen=""></iframe>
                     </div>
                 </div>
@@ -592,6 +609,63 @@
     </footer>
     <!-- Footer Section End -->
 
+    <!-- Modal -->
+    <!-- appointment -->
+    <!-- Modal -->
+    <div class="modal fade" id="book_appointment" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <!-- <h5 class="modal-title" id="exampleModalLabel">Book Appointment</h5> -->
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="consultation__form mt-1">
+                        <div class="section-title">
+                            <span>REQUEST FOR YOUR</span>
+                            <h2>Consultation</h2>
+                        </div>
+                        <form name="form">
+                            <input type="text" placeholder="Name" ng-model="client_name">
+                            <input type="text" placeholder="Email" ng-model="client_email" name="email"
+                                ng-pattern="/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/">
+                            <div class="text-danger" ng-if="form.email.$dirty&&form.email.$error.pattern">*Enter correct
+                                Email Address!</div>
+                            <input type="tel" placeholder="Phone" ng-model="client_phone" name="phone"
+                                ng-pattern="/^[0-9]{1,10}$/">
+                            <div class="text-danger" ng-if="form.phone.$dirty&&form.phone.$error.pattern">*Enter correct
+                                phone number!</div>
+                            <div class="datepicker__item">
+                                <input type="date" placeholder="Date" ng-model="client_date">
+                                <!-- <i class="fa fa-calendar"></i> -->
+                            </div>
+                            <select class="form-control mb-3" ng-model="client_service">
+                                <option value="">Type of service</option>
+                                <option value="General Services">General Services</option>
+                                <option value="Obstetric care">Obstetric care</option>
+                                <option value="Echography">Echography</option>
+                                <option value="Laboratory">Laboratory</option>
+                                <option value="Delivery">Delivery</option>
+                                <option value="Gynecologique surgery">Gynecologique surgery</option>
+                                <option value="Neonatology">Neonatology</option>
+                            </select>
+
+                            <button type="submit" class="site-btn" ng-click="bookAppointment()">Book
+                                Appoitment</button>
+                        </form>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <!-- <button type="button" class="btn btn-primary">Save changes</button> -->
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Modal end -->
+
     <!-- angular -->
     <script src="js/angular.js"></script>
     <!-- custom js -->
@@ -604,12 +678,12 @@
     <script src="js/jquery.magnific-popup.min.js"></script>
     <script src="js/masonry.pkgd.min.js"></script>
     <script src="js/jquery-ui.min.js"></script>
-    <script src="js/jquery.nice-select.min.js"></script>
+    <!-- <script src="js/jquery.nice-select.min.js"></script> -->
     <script src="js/jquery.slicknav.js"></script>
     <script src="js/owl.carousel.min.js"></script>
     <script src="js/main.js"></script>
     <script src="node_modules/angular-utils-pagination/dirPagination.js"></script>
-    
+
 </body>
 
 

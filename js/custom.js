@@ -114,14 +114,14 @@ app.controller('aboutCtlr', function ($scope, $http, $window) {
   $scope.authenticated();
 
   $scope.bookAppointment = () => {
-    
+
     if ($scope.client_name == null || $scope.client_email == null || $scope.client_date == null || $scope.client_service == null) {
       swal({
         title: "Ooops, fill all fields first.",
         icon: 'warning'
       });
     }
-     else {      
+    else {
       var new_date = new Date($scope.client_date);
       var date = new_date.getDate();
       if (date < 10) { var nu_date = ("0" + new_date.getDate()).slice(-2); } else { var nu_date = new_date.getDate(); }
@@ -182,6 +182,108 @@ app.controller('contactCtlr', function ($scope, $http, $window) {
   }
 
   $scope.authenticated();
+
+  $scope.bookAppointment = () => {
+
+    if ($scope.client_name == null || $scope.client_email == null || $scope.client_date == null || $scope.client_service == null) {
+      swal({
+        title: "Ooops, fill all fields first.",
+        icon: 'warning'
+      });
+    }
+    else {
+      var new_date = new Date($scope.client_date);
+      var date = new_date.getDate();
+      if (date < 10) { var nu_date = ("0" + new_date.getDate()).slice(-2); } else { var nu_date = new_date.getDate(); }
+      var month = new_date.getMonth() + 1; // Since getMonth() returns month from 0-11 not 1-12
+      if (month < 10) { var new_month = ("0" + (new_date.getMonth() + 1)).slice(-2); } else { var new_month = new_date.getMonth() + 1; }
+      var year = new_date.getFullYear();
+      var changed_date = nu_date + "-" + new_month + "-" + year;
+      // console.log(changed_date)
+
+      $http({
+        method: 'POST',
+        url: 'api/bookAppointment.php',
+        data: {
+          'name': $scope.client_name,
+          'email': $scope.client_email,
+          'phone': $scope.client_phone,
+          'date': changed_date,
+          'service': $scope.client_service
+        }
+      }).then((response) => {
+        console.log(response.data);
+        if (response.data == "done") {
+          console.log(response.data)
+          swal({
+            title: 'Data sent successfully! ',
+            text: 'Other details to be communicated.',
+            icon: 'success',
+            buttons: true
+          })
+            .then((result) => {
+              if (result) {
+                $window.location.reload();
+              } else {
+                $window.location.reload();
+              }
+            });
+          // console.log(reponse.data)
+        } else {
+          swal({
+            title: response.data
+          });
+        }
+      });
+    }
+  }
+
+  $scope.sendMessage = () => {
+
+    if ($scope.m_name == null || $scope.m_email == null || $scope.message == null) {
+      swal({
+        title: "Ooops, fill all fields first.",
+        icon: 'warning'
+      });
+    }
+    else {
+
+      $http({
+        method: 'POST',
+        url: 'api/addMessage.php',
+        data: {
+          'name': $scope.m_name,
+          'email': $scope.m_email,
+          'message': $scope.message
+        }
+      }).then((response) => {
+        console.log(response.data);
+        if (response.data == "done") {
+          // console.log(response.data)
+          swal({
+            title: 'Message sent successfully! ',
+            text: 'Other details to be communicated.',
+            icon: 'success',
+            buttons: true
+          })
+            .then((result) => {
+              if (result) {
+                $window.location.reload();
+              } else {
+                $window.location.reload();
+              }
+            });
+          // console.log(reponse.data)
+        } else {
+          swal({
+            title: response.data
+          });
+        }
+      });
+    }
+
+  }
+
 });
 
 // faq page
@@ -196,6 +298,63 @@ app.controller('faqCtlr', function ($scope, $http, $window) {
   }
 
   $scope.authenticated();
+
+  $scope.bookAppointment = () => {
+
+    if ($scope.client_name == null || $scope.client_email == null || $scope.client_date == null || $scope.client_service == null) {
+      swal({
+        title: "Ooops, fill all fields first.",
+        icon: 'warning'
+      });
+    }
+    else {
+      var new_date = new Date($scope.client_date);
+      var date = new_date.getDate();
+      if (date < 10) { var nu_date = ("0" + new_date.getDate()).slice(-2); } else { var nu_date = new_date.getDate(); }
+      var month = new_date.getMonth() + 1; // Since getMonth() returns month from 0-11 not 1-12
+      if (month < 10) { var new_month = ("0" + (new_date.getMonth() + 1)).slice(-2); } else { var new_month = new_date.getMonth() + 1; }
+      var year = new_date.getFullYear();
+      var changed_date = nu_date + "-" + new_month + "-" + year;
+      // console.log(changed_date)
+
+      $http({
+        method: 'POST',
+        url: 'api/bookAppointment.php',
+        data: {
+          'name': $scope.client_name,
+          'email': $scope.client_email,
+          'phone': $scope.client_phone,
+          'date': changed_date,
+          'service': $scope.client_service
+        }
+      }).then((response) => {
+        console.log(response.data);
+        if (response.data == "done") {
+          console.log(response.data)
+          swal({
+            title: 'Data sent successfully! ',
+            text: 'Other details to be communicated.',
+            icon: 'success',
+            buttons: true
+          })
+            .then((result) => {
+              if (result) {
+                $window.location.reload();
+              } else {
+                $window.location.reload();
+              }
+            });
+          // console.log(reponse.data)
+        } else {
+          swal({
+            title: response.data
+          });
+        }
+      });
+    }
+
+  }
+
 });
 
 
@@ -246,12 +405,68 @@ app.controller('serviceCtlr', function ($scope, $http, $window) {
 
   $scope.authenticated();
 
+  $scope.bookAppointment = () => {
+
+    if ($scope.client_name == null || $scope.client_email == null || $scope.client_date == null || $scope.client_service == null) {
+      swal({
+        title: "Ooops, fill all fields first.",
+        icon: 'warning'
+      });
+    }
+    else {
+      var new_date = new Date($scope.client_date);
+      var date = new_date.getDate();
+      if (date < 10) { var nu_date = ("0" + new_date.getDate()).slice(-2); } else { var nu_date = new_date.getDate(); }
+      var month = new_date.getMonth() + 1; // Since getMonth() returns month from 0-11 not 1-12
+      if (month < 10) { var new_month = ("0" + (new_date.getMonth() + 1)).slice(-2); } else { var new_month = new_date.getMonth() + 1; }
+      var year = new_date.getFullYear();
+      var changed_date = nu_date + "-" + new_month + "-" + year;
+      // console.log(changed_date)
+
+      $http({
+        method: 'POST',
+        url: 'api/bookAppointment.php',
+        data: {
+          'name': $scope.client_name,
+          'email': $scope.client_email,
+          'phone': $scope.client_phone,
+          'date': changed_date,
+          'service': $scope.client_service
+        }
+      }).then((response) => {
+        console.log(response.data);
+        if (response.data == "done") {
+          console.log(response.data)
+          swal({
+            title: 'Data sent successfully! ',
+            text: 'Other details to be communicated.',
+            icon: 'success',
+            buttons: true
+          })
+            .then((result) => {
+              if (result) {
+                $window.location.reload();
+              } else {
+                $window.location.reload();
+              }
+            });
+          // console.log(reponse.data)
+        } else {
+          swal({
+            title: response.data
+          });
+        }
+      });
+    }
+
+  }
+
 });
 
 
 // admin page
 app.controller('adminCtlr', function ($scope, $http, $window) {
-  
+
   var pageURL = $(location).attr("href");
   // console.log(pageURL);
   $scope.getuser = () => {
@@ -266,19 +481,20 @@ app.controller('adminCtlr', function ($scope, $http, $window) {
   }
   $scope.getuser();
 
-  $scope.appointments = true; $scope.messages = false; $scope.settings = false;
+  
+  $scope.appointment = true; $scope.message = false; $scope.settings = false;  
 
   $scope.getLinks = (link) => {
     if (link == "link1") {
-      $scope.appointments = true; $scope.messages = false; $scope.settings = false;
+      $scope.appointment = true; $scope.message = false; $scope.settings = false;
       $('.card-heading').removeClass('active');
       $('.link1').addClass('active');
     } else if (link == "link2") {
-      $scope.appointments = false; $scope.messages = true; $scope.settings = false;
+      $scope.appointment = false; $scope.message = true; $scope.settings = false;
       $('.card-heading').removeClass('active');
       $('.link2').addClass('active');
     } else if (link == "link3") {
-      $scope.appointments = false; $scope.messages = false; $scope.settings = true;
+      $scope.appointment = false; $scope.message = false; $scope.settings = true;
       $('.card-heading').removeClass('active');
       $('.link3').addClass('active');
     }
@@ -293,10 +509,10 @@ app.controller('adminCtlr', function ($scope, $http, $window) {
         $scope.some_appoint = false;
         $scope.no_appoint = true;
       } else {
-        console.log(response.data)
+        // console.log(response.data)
         $scope.some_appoint = true;
         $scope.no_appoint = false;
-        $scope.appointments = response.data;        
+        $scope.appointments = response.data;
       }
     });
   }
@@ -365,10 +581,11 @@ app.controller('adminCtlr', function ($scope, $http, $window) {
         $scope.empty_msg = "No messages yet";
         $scope.some_mesg = false;
         $scope.no_mesg = true;
-      } else {
-        $scope.messages = response.data;
+      } else{ 
+        // console.log(response.data)       
         $scope.some_mesg = true;
         $scope.no_mesg = false;
+        $scope.messages = response.data;
       }
     });
   }
@@ -445,8 +662,9 @@ app.controller('adminCtlr', function ($scope, $http, $window) {
           }).then((result) => {
             if (result) {
               $scope.userInfo();
+            } else {
+              $scope.userInfo();
             }
-            $scope.userInfo();
           });
         } else {
           swal({
@@ -478,6 +696,62 @@ app.controller('adminCtlr', function ($scope, $http, $window) {
   }
 
   $scope.authenticated();
+
+  $scope.bookAppointment = () => {
+
+    if ($scope.client_name == null || $scope.client_email == null || $scope.client_date == null || $scope.client_service == null) {
+      swal({
+        title: "Ooops, fill all fields first.",
+        icon: 'warning'
+      });
+    }
+    else {
+      var new_date = new Date($scope.client_date);
+      var date = new_date.getDate();
+      if (date < 10) { var nu_date = ("0" + new_date.getDate()).slice(-2); } else { var nu_date = new_date.getDate(); }
+      var month = new_date.getMonth() + 1; // Since getMonth() returns month from 0-11 not 1-12
+      if (month < 10) { var new_month = ("0" + (new_date.getMonth() + 1)).slice(-2); } else { var new_month = new_date.getMonth() + 1; }
+      var year = new_date.getFullYear();
+      var changed_date = nu_date + "-" + new_month + "-" + year;
+      // console.log(changed_date)
+
+      $http({
+        method: 'POST',
+        url: 'api/bookAppointment.php',
+        data: {
+          'name': $scope.client_name,
+          'email': $scope.client_email,
+          'phone': $scope.client_phone,
+          'date': changed_date,
+          'service': $scope.client_service
+        }
+      }).then((response) => {
+        console.log(response.data);
+        if (response.data == "done") {
+          console.log(response.data)
+          swal({
+            title: 'Data sent successfully! ',
+            text: 'Other details to be communicated.',
+            icon: 'success',
+            buttons: true
+          })
+            .then((result) => {
+              if (result) {
+                $window.location.reload();
+              } else {
+                $window.location.reload();
+              }
+            });
+          // console.log(reponse.data)
+        } else {
+          swal({
+            title: response.data
+          });
+        }
+      });
+    }
+
+  }
 
 });
 
