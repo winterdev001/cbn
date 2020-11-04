@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html lang="eng">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="developer" content="bahatipatrick05@gmail.com">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>CBN</title>
+
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&amp;display=swap"
+        rel="stylesheet">
+
+    <!-- Css Styles -->
+    <link rel="stylesheet" href="css/bootstrap.min.css" type="text/css">
+    <link rel="stylesheet" href="css/font-awesome.min.css" type="text/css">
+    <link rel="stylesheet" href="css/flaticon.css" type="text/css">
+    <link rel="stylesheet" href="css/nice-select.css" type="text/css">
+    <link rel="stylesheet" href="css/jquery-ui.min.css" type="text/css">
+    <link rel="stylesheet" href="css/magnific-popup.css" type="text/css">
+    <link rel="stylesheet" href="css/owl.carousel.min.css" type="text/css">
+    <link rel="stylesheet" href="css/slicknav.min.css" type="text/css">
+    <link rel="stylesheet" href="css/style.css" type="text/css">
+
+    <!-- font awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+
+<body ng-app="myApp" ng-controller="adminCtlr">
+    <!-- Page Preloder -->
+    <!-- <div id="preloder">
+        <div class="loader"></div>
+    </div> -->
+
+    <!-- Offcanvas Menu Begin -->
+    <div class="offcanvas-menu-overlay"></div>
+    <div class="offcanvas-menu-wrapper">
+        <div class="offcanvas__logo">
+            <a href="index.html"><img src="img/logo.png" alt=""></a>
+        </div>
+        <div id="mobile-menu-wrap"></div>
+        <div class="offcanvas__btn">
+            <a href="#make_appointment" class="primary-btn">Appointment</a>
+        </div>
+        <ul class="offcanvas__widget">
+            <li><i class="fa fa-phone"></i> 1-677-124-44227</li>
+            <li><i class="fa fa-map-marker"></i> Los Angeles Gournadi, 1230 Bariasl</li>
+            <li><i class="fa fa-clock-o"></i> Mon to Sat 9:00am to 18:00pm</li>
+        </ul>
+        <div class="offcanvas__social">
+            <a href="#"><i class="fa fa-facebook"></i></a>
+            <a href="#"><i class="fa fa-twitter"></i></a>
+            <a href="#"><i class="fa fa-instagram"></i></a>
+            <a href="#"><i class="fa fa-dribbble"></i></a>
+        </div>
+    </div>
+    <!-- Offcanvas Menu End -->
+
+    <!-- Header Section Begin -->
+    <header class="header">
+        <div class="header__top">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-8">
+                        <ul class="header__top__left">
+                            <li><i class="fa fa-phone"></i> +250-788-454-647</li>
+                            <li><i class="fa fa-map-marker"></i> NYARUGENGE - KIGALI CITY </li>
+                            <li><i class="fa fa-clock-o"></i> Mon to Sat 9:00am to 18:00pm</li>
+                        </ul>
+                    </div>
+                    <div class="col-lg-4">
+                        <div class="header__top__right">
+                            <a href="#"><i class="fa fa-facebook"></i></a>
+                            <a href="#"><i class="fa fa-twitter"></i></a>
+                            <a href="#"><i class="fa fa-instagram"></i></a>
+                            <a href="#"><i class="fa fa-dribbble"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-2">
+                    <div class="header__logo">
+                        <a href="index.html"><img src="img/logo.png" alt=""></a>
+                    </div>
+                </div>
+                <div class="col-lg-10">
+                    <div class="header__menu__option">
+                        <nav class="header__menu">
+                            <ul>
+                                <li><a href="index.html">Home</a></li>
+                                <li><a href="about.html">About</a></li>
+                                <li><a href="services.html">Services</a></li>
+                                <li><a href="contact.html">Contact</a></li>
+                                <li><a href="faq.html">FAQ</a></li>
+                                <li class="active"><a href="admin.html"> Admin</a></li>
+                            </ul>
+                        </nav>
+                        <div class="header__btn">
+                            <a href="#make_appointment" class="primary-btn">Appointment</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="canvas__open">
+                <i class="fa fa-bars"></i>
+            </div>
+        </div>
+    </header>
+    <!-- Header Section End -->
+
+    <!-- Breadcrumb Section Begin -->
+    <!-- <section class="breadcrumb-option spad set-bg" data-setbg="img/breadcrumb-bg.jpg">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <div class="breadcrumb__text">
+                        <h2>Our Services</h2>
+                        <div class="breadcrumb__links">
+                            <a href="index-2.html">Home</a>
+                            <span>Services</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section> -->
+    <!-- Breadcrumb Section End -->
+
+    <!-- Services Section Begin -->
+    <section class="services-page spad">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 order-lg-1">
+                    <div class="card profile_card">
+                        <div class="card-body">
+                            <img ng-src="api/uploads/{{image}}" width="50%" on-error="api/uploads/noprofile.jpg"
+                                class=" mx-auto d-block" alt="">
+                            <h3 class="text-center">{{username}}</h3>
+                            <div class="edit_profile"><span data-toggle="modal" data-target="#edit_profile_pic"><i
+                                        class="fa fa-pencil fa-lg"></i></span></div>
+                        </div>
+                    </div>
+
+                    <div class="services__sidebar">
+                        <div class="services__accordion">
+                            <div class="accordion" id="accordionExample">
+                                <div class="card">
+                                    <div class="card-heading link1 active">
+                                        <a data-toggle="collapse" data-target="#collapseOne"
+                                            ng-click="getLinks(link1='link1')">
+                                            Appointments
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="card">
+                                    <div class="card-heading link2">
+                                        <a data-toggle="collapse" data-target="#collapseTwo"
+                                            ng-click="getLinks(link2='link2')">
+                                            Messages
+                                        </a>
+                                    </div>
+
+                                </div>
+                                <div class="card">
+                                    <div class="card-heading link3">
+                                        <a data-toggle="collapse" data-target="#collapseThree"
+                                            ng-click="getLinks(link3='link3')">
+                                            Settings
+                                        </a>
+                                    </div>
+
+                                </div>
+                                <div class="card">
+                                    <div class="card-heading link4">
+                                        <a data-toggle="collapse" data-target="#collapseFour" ng-click="logout()">
+                                            Logout
+                                        </a>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-8 order-lg-2">
+                    <div class="services__details">
+                        <!-- appointments begin -->
+                        <div class="appointments" ng-show="appointments">
+                            <div ng-show="some_appoint">
+                                <div class="float-right mb-2">
+                                    <input type="text" placeholder="Search..." ng-model="query" class="form-control">
+                                </div>
+                                <table class="table table-stripped table-bordered table-hover">
+                                    <thead>
+                                        <tr>
+                                            <th scope="col">Name</th>
+                                            <th scope="col">Phone</th>
+                                            <th scope="col">Service</th>
+                                            <th scope="col">Date</th>
+                                            <th></th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <!-- <tr ng-repeat="appoint in appointments | filter :query |filter:paginate "
+                                            ng-class-odd="'odd'"> -->
+                                        <tr dir-paginate="appoint in appointments|filter:query|itemsPerPage:5">
+                                            <th scope="row">{{appoint.name}}</th>
+                                            <td>0{{appoint.phone}}</td>
+                                            <td>{{appoint.service}}</td>
+                                            <td>{{appoint.date}}</td>
+                                            <td><button class="btn btn-default text-light"
+                                                    ng-click="showAppointment(appoint.id)"><i
+                                                        class="fa fa-external-link"></i></button></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                                <div class="badge badge-default p-2  float-right">
+                                    <dir-pagination-controls
+                                        default="node_modules/angular-utils-pagination/dirPagination.tpl.html"
+                                        max-size="5" direction-links="true" boundary-links="true"
+                                        class=" font-weight-bold spacex text-warning"
+                                        style="letter-spacing: 13px;font-size: 15px">
+                                    </dir-pagination-controls>
+                                </div>
+
+                            </div>
+                            <div ng-show="no_appoint" class="text-center">
+                                <div class="alert alert-dark" role="alert">
+                                    <strong>{{empty_appoint}}</strong>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- appointments end -->
+                        <!-- messages begin -->
+                        <div class="messages" ng-show="messages">
+                            <div ng-show="some_msg">
+                                <table class="table table-stripped table-bordered table-hover">
+                                    <thead>
+                                        <tr>
+                                            <th scope="col">Name</th>
+                                            <th scope="col">Email</th>
+                                            <th scope="col">Message</th>
+                                            <th scope="col">Create At</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr ng-repeat="msg in messages">
+                                            <th scope="row">{{msg.name}}</th>
+                                            <td>{{msg.email}}</td>
+                                            <td>{{msg.message}}</td>
+                                            <td>{{msg.create_at}}</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <div ng-show="no_msg text-center">
+                                <div class="alert alert-dark" role="alert">
+                                    <strong>{{empty_msg}}...</strong>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- messages end -->
+                        <!-- settingd begin -->
+                        <div class="settings" ng-show="settings">
+                            <div class="card">
+                                <div class="card-body">
+                                    <form>
+                                        <div class="input-group mb-3">
+                                            <div class="input-group-prepend">
+                                                <span class="input-group-text" id="basic-addon1"><i
+                                                        class="fa fa-user"></i>
+                                                    Username</span>
+                                            </div>
+                                            <input type="text" ng-model="username" class="form-control"
+                                                placeholder="Username" aria-label="Username"
+                                                aria-describedby="basic-addon1">
+                                        </div>
+                                        <div class="input-group mb-3">
+                                            <div class="input-group-prepend">
+                                                <span class="input-group-text" id="basic-addon1"><i
+                                                        class="fa fa-key"></i>
+                                                    Password</span>
+                                            </div>
+                                            <input type="text" ng-model="password" class="form-control"
+                                                placeholder="Password" aria-label="Username"
+                                                aria-describedby="basic-addon1">
+                                        </div>
+                                        <div class="text-center">
+                                            <button class="btn btn-default" ng-click="updateUser()">Update</button>
+                                        </div>
+
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- settings end -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Services Section End -->
+
+    <!-- Footer Section Begin -->
+    <footer class="footer">
+        <div class="footer__top">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-4 col-md-4">
+                        <div class="footer__logo">
+                            <a href="#"><img src="img/footer-logo.png" alt=""></a>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-12">
+                        <div class="footer__social">
+                            <a href="#"><i class="fa fa-facebook"></i></a>
+                            <a href="#"><i class="fa fa-twitter"></i></a>
+                            <a href="#"><i class="fa fa-instagram"></i></a>
+                            <a href="#"><i class="fa fa-dribbble"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-2 col-md-3 col-sm-6">
+                    <div class="footer__widget">
+                        <h5>Company</h5>
+                        <ul>
+                            <li><a href="#make_appointment">Appointment</a></li>
+                            <li><a href="about.html">About Us</a></li>
+                            <li><a href="services.html">Services</a></li>
+                            <li><a href="contact.html">Contact</a></li>
+                            <li><a href="faq.html">FAQ</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-3 col-sm-6">
+                    <div class="footer__widget">
+                        <h5>Quick links</h5>
+                        <ul>
+                            <li><a href="services.html">Breast exams</a></li>
+                            <li><a href="services.html">Contraception</a></li>
+                            <li><a href="services.html">General gynecology</a></li>
+                            <li><a href="services.html">General physicals</a></li>
+                            <li><a href="services.html">Pelvic exams</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 col-sm-6">
+                    <div class="footer__address">
+                        <h5>Contact Us</h5>
+                        <ul>
+                            <li><i class="fa fa-map-marker"></i> NYARUGENGE - KIGALI CITY</li>
+                            <li><i class="fa fa-phone"></i> +250-788-454-647</li>
+                            <li><i class="fa fa-envelope"></i> cliniquebiennaitre@yahoo.fr</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-12 col-sm-6">
+                    <div class="footer__map">
+                        <iframe src="https://maps.google.com/maps?q=clinique%20bien&t=&z=13&ie=UTF8&iwloc=&output=embed"
+                            height="190" style="border:0" allowfullscreen=""></iframe>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer__copyright">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-7">
+                        <div class="footer__copyright__text">
+                            <p>Copyright &copy;
+                                <script>document.write(new Date().getFullYear());</script> All rights reserved | CBN
+                        </div>
+                    </div>
+                    <div class="col-lg-5">
+                        <ul>
+                            <li>All Rights Reserved</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- Footer Section End -->
+
+    <!-- modal section begin -->
+    <!-- change profile Modal -->
+    <div class="modal fade" id="edit_profile_pic" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog ">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Change Picture</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <div class="form-group mb-3">
+                            <label for="exampleFormControlFile1">Choose File</label>
+                            <input type="file" file-input="files" class="form-control-file"
+                                id="exampleFormControlFile1">
+                        </div>
+                        <div class="text-center">
+                            <button class="btn btn-default" ng-click="uploadImage()">Upload</button>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <!-- <button type="button" class="btn btn-primary">Save changes</button> -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- show appointment Modal -->
+    <div class="modal fade" id="appoint_details" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-md">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">{{appoint_name}}'s appointment</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <p class="modal-text">Client Name: <strong>{{appoint_name}}</strong></p>
+                    <p class="modal-text">Client Email: <strong>{{appoint_email}}</strong></p>
+                    <p class="modal-text">Client Phone: <strong>0{{appoint_phone}}</strong></p>
+                    <p class="modal-text">Appointment Date: <strong>{{appoint_date}}</strong></p>
+                    <p class="modal-text">Type of Service : <strong>{{appoint_service}}</strong></p>
+                    <p class="modal-text">Date Created : <strong class="text-muted">{{appoint_created_at}}</strong></p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger"
+                        ng-click="deleteAppointment(appoint_id)">Delete</button>
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <!-- <button type="button" class="btn btn-primary">Save changes</button> -->
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- modal section end -->
+
+    <!-- angular -->
+    <script src="js/angular.js"></script>
+    <!-- custom js -->
+    <script src="js/custom.js"></script>
+    <!-- sweetalert -->
+    <script src="js/sweetalert1.js"></script>
+    <!-- Js Plugins -->
+    <script src="node_modules/angular-utils-pagination/dirPagination.js"></script>
+    <script src="js/jquery-3.3.1.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/jquery.magnific-popup.min.js"></script>
+    <script src="js/masonry.pkgd.min.js"></script>
+    <script src="js/jquery-ui.min.js"></script>
+    <script src="js/jquery.nice-select.min.js"></script>
+    <script src="js/jquery.slicknav.js"></script>
+    <script src="js/owl.carousel.min.js"></script>
+    <script src="js/main.js"></script>
+</body>
+
+
+</html>

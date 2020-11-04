@@ -1,0 +1,577 @@
+<!DOCTYPE html>
+<html lang="eng">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="developer" content="bahatipatrick05@gmail.com">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>CBN</title>
+
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&amp;display=swap"
+        rel="stylesheet">
+
+    <!-- Css Styles -->
+    <link rel="stylesheet" href="css/bootstrap.min.css" type="text/css">
+    <link rel="stylesheet" href="css/font-awesome.min.css" type="text/css">
+    <link rel="stylesheet" href="css/flaticon.css" type="text/css">
+    <link rel="stylesheet" href="css/nice-select.css" type="text/css">
+    <link rel="stylesheet" href="css/jquery-ui.min.css" type="text/css">
+    <link rel="stylesheet" href="css/magnific-popup.css" type="text/css">
+    <link rel="stylesheet" href="css/owl.carousel.min.css" type="text/css">
+    <link rel="stylesheet" href="css/slicknav.min.css" type="text/css">
+    <link rel="stylesheet" href="css/style.css" type="text/css">
+</head>
+
+<body ng-app="myApp" ng-controller="indexCtlr">
+    <!-- Page Preloder -->
+    <!-- <div id="preloder">
+        <div class="loader"></div>
+    </div> -->
+
+    <!-- Offcanvas Menu Begin -->
+    <div class="offcanvas-menu-overlay"></div>
+    <div class="offcanvas-menu-wrapper">
+        <div class="offcanvas__logo">
+            <a href="index.html"><img src="img/logo.png" alt=""></a>
+        </div>
+        <div id="mobile-menu-wrap"></div>
+        <div class="offcanvas__btn">
+            <a href="#make_appointment" class="primary-btn">Appointment</a>
+        </div>
+        <ul class="offcanvas__widget">
+            <li><i class="fa fa-phone"></i> 1-677-124-44227</li>
+            <li><i class="fa fa-map-marker"></i> Los Angeles Gournadi, 1230 Bariasl</li>
+            <li><i class="fa fa-clock-o"></i> Mon to Sat 9:00am to 18:00pm</li>
+        </ul>
+        <div class="offcanvas__social">
+            <a href="#"><i class="fa fa-facebook"></i></a>
+            <a href="#"><i class="fa fa-twitter"></i></a>
+            <a href="#"><i class="fa fa-instagram"></i></a>
+            <a href="#"><i class="fa fa-dribbble"></i></a>
+        </div>
+    </div>
+    <!-- Offcanvas Menu End -->
+
+    <!-- Header Section Begin -->
+    <header class="header">
+        <div class="header__top">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-8">
+                        <ul class="header__top__left">
+                            <li><i class="fa fa-phone"></i> +250-788-454-647</li>
+                            <li><i class="fa fa-map-marker"></i> NYARUGENGE - KIGALI CITY </li>
+                            <li><i class="fa fa-clock-o"></i> Mon to Sat 9:00am to 18:00pm</li>
+                        </ul>
+                    </div>
+                    <div class="col-lg-4">
+                        <div class="header__top__right">
+                            <a href="#"><i class="fa fa-facebook"></i></a>
+                            <a href="#"><i class="fa fa-twitter"></i></a>
+                            <a href="#"><i class="fa fa-instagram"></i></a>
+                            <a href="#"><i class="fa fa-dribbble"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-2">
+                    <div class="header__logo">
+                        <a href="index.html"><img src="img/logo.png" alt=""></a>
+                    </div>
+                </div>
+                <div class="col-lg-10">
+                    <div class="header__menu__option">
+                        <nav class="header__menu">
+                            <ul>
+                                <li class="active"><a href="index.html">Home</a></li>
+                                <li><a href="about.html">About</a></li>
+                                <li><a href="services.html">Services</a></li>
+                                <li><a href="contact.html">Contact</a></li>
+                                <li><a href="faq.html">FAQ</a></li>
+                                <li ng-show="admin_link"><a href="admin.html">Admin</a></li>
+                            </ul>
+                        </nav>
+                        <div class="header__btn">
+                            <a href="#make_appointment" class="primary-btn">Appointment</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="canvas__open">
+                <i class="fa fa-bars"></i>
+            </div>
+        </div>
+    </header>
+    <!-- Header Section End -->
+
+    <!-- Hero Section Begin -->
+    <section class="hero spad set-bg" data-setbg="img/hero-bg.jpg">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6">
+                    <div class="hero__text">
+                        <span>EXCELLENT HEALTHCARE SERVICE! </span>
+                        <h2>We Care for Your Health Every Moment</h2>
+                        <a href="contact.html" class="primary-btn normal-btn">Contact us</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="appointment" id="make_appointment"></div>
+    </section>
+    <!-- Hero Section End -->
+    <!-- Consultation Section Begin -->
+    <section class="consultation">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4">
+                    <div class="consultation__form">
+                        <div class="section-title">
+                            <span>REQUEST FOR YOUR</span>
+                            <h2>Consultation</h2>
+                        </div>
+                        <form  name="form">
+                            <input type="text" placeholder="Name" ng-model="client_name">
+                            <input type="text" placeholder="Email" ng-model="client_email" name="email"  ng-pattern="/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/">
+                            <div class="text-danger" ng-if="form.email.$dirty&&form.email.$error.pattern">*Enter correct Email Address!</div>
+                            <input type="tel" placeholder="Phone" ng-model="client_phone" name="phone" ng-pattern="/^[0-9]{1,10}$/">
+                            <div class="text-danger" ng-if="form.phone.$dirty&&form.phone.$error.pattern">*Enter correct  phone number!</div>
+                            <div class="datepicker__item">
+                                <input type="date" placeholder="Date" ng-model="client_date">
+                                <!-- <i class="fa fa-calendar"></i> -->
+                            </div>
+                            <select class="form-control mb-3" ng-model="client_service" >
+                                <option value="">Type of service</option>
+                                <option value="General Services">General Services</option>
+                                <option value="Obstetric care">Obstetric care</option>
+                                <option value="Echography">Echography</option>
+                                <option value="Laboratory">Laboratory</option>
+                                <option value="Delivery">Delivery</option>
+                                <option value="Gynecologique surgery">Gynecologique surgery</option>
+                                <option value="Neonatology">Neonatology</option>
+                            </select>
+                           
+                            <button type="submit" class="site-btn" ng-click="bookAppointment()">Book
+                                Appoitment</button>
+                        </form>
+                    </div>
+                </div>
+                <div class="col-lg-8">
+                    <div class="consultation__text">
+                        <div class="row">
+                            <div class="col-lg-6 col-md-6">
+                                <div class="consultation__text__item">
+                                    <div class="section-title">
+                                        <span>Welcome to CBN</span>
+                                        <h2>Find Best Doctors With <b>CBN</b></h2>
+                                    </div>
+                                    <p>The Clinic has opened the door in 2006.
+                                        In 2007 we have been officially certified by the Ministry of Health to operate
+                                        as a specialized Clinique.
+                                        From then now we are in this for 13years of experiences.</p>
+                                </div>
+                            </div>
+                            <div class="col-lg-6 col-md-6">
+                                <div class="">
+                                    <!-- <a href="img/steto.jpeg" class="play-btn video-popup"></a> -->
+                                    <img src="img/steto.jpeg" alt="appointment" height="262">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Consultation Section End -->
+
+    <!-- Chooseus Section Begin -->
+    <section class="chooseus spad">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <div class="section-title">
+                        <span>Why choose us?</span>
+                        <h2>Offer for you</h2>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-3 col-md-6 col-sm-6">
+                    <div class="chooseus__item">
+                        <img src="img/icons/ci-1.png" alt="">
+                        <h5>Advanced equipment</h5>
+                        <p>Lorem ipsum amet, consectetur adipiscing elit, sed do eiusmod tempor cididunt facilisis.</p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 col-sm-6">
+                    <div class="chooseus__item">
+                        <img src="img/icons/ci-2.png" alt="">
+                        <h5>Qualified doctors</h5>
+                        <p>Lorem ipsum amet, consectetur adipiscing elit, sed do eiusmod tempor cididunt facilisis.</p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 col-sm-6">
+                    <div class="chooseus__item">
+                        <img src="img/icons/ci-3.png" alt="">
+                        <h5>Certified services</h5>
+                        <p>Lorem ipsum amet, consectetur adipiscing elit, sed do eiusmod tempor cididunt facilisis.</p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 col-sm-6">
+                    <div class="chooseus__item">
+                        <img src="img/icons/ci-4.png" alt="">
+                        <h5>Emergency care</h5>
+                        <p>Lorem ipsum amet, consectetur adipiscing elit, sed do eiusmod tempor cididunt facilisis.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Chooseus Section End -->
+
+    <!-- Services Section Begin -->
+    <section class="services spad set-bg" data-setbg="img/services-bg.jpg">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-md-8 col-sm-6">
+                    <div class="section-title">
+                        <span>Our services</span>
+                        <h2>Offer for you</h2>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-4 col-sm-6">
+                    <div class="services__btn">
+                        <a href="contact.html" class="primary-btn">Contact us</a>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-6 col-md-6">
+                    <div class="services__item">
+                        <div class="services__item__icon">
+                            <span class="flaticon-044-aesthetic"></span>
+                        </div>
+                        <div class="services__item__text">
+                            <h5>Breast exams</h5>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor aliqua.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6 col-md-6">
+                    <div class="services__item">
+                        <div class="services__item__icon">
+                            <span class="flaticon-027-beauty"></span>
+                        </div>
+                        <div class="services__item__text">
+                            <h5>Contraception</h5>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor aliqua.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6 col-md-6">
+                    <div class="services__item">
+                        <div class="services__item__icon">
+                            <span class="flaticon-031-anatomy"></span>
+                        </div>
+                        <div class="services__item__text">
+                            <h5>General gynecology </h5>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor aliqua.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6 col-md-6">
+                    <div class="services__item">
+                        <div class="services__item__icon">
+                            <span class="flaticon-008-abdominoplasty"></span>
+                        </div>
+                        <div class="services__item__text">
+                            <h5>General physicals</h5>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor aliqua.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6 col-md-6">
+                    <div class="services__item">
+                        <div class="services__item__icon">
+                            <span class="flaticon-008-abdominoplasty"></span>
+                        </div>
+                        <div class="services__item__text">
+                            <h5>Immunizations and injections</h5>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor aliqua.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6 col-md-6">
+                    <div class="services__item">
+                        <div class="services__item__icon">
+                            <span class="flaticon-008-abdominoplasty"></span>
+                        </div>
+                        <div class="services__item__text">
+                            <h5>Pelvic exams</h5>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor aliqua.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Services Section End -->
+
+    <!-- Team Section Begin -->
+    <!-- <section class="team spad">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <div class="section-title">
+                        <span>Our Team</span>
+                        <h2>Our Expert Doctors</h2>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-4 col-md-6 col-sm-6">
+                    <div class="team__item">
+                        <img src="img/team/team-1.jpg" alt="">
+                        <h5>Caroline Grant</h5>
+                        <span>Plastic surgeon</span>
+                        <div class="team__item__social">
+                            <a href="#"><i class="fa fa-facebook"></i></a>
+                            <a href="#"><i class="fa fa-twitter"></i></a>
+                            <a href="#"><i class="fa fa-instagram"></i></a>
+                            <a href="#"><i class="fa fa-dribbble"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 col-sm-6">
+                    <div class="team__item">
+                        <img src="img/team/team-2.jpg" alt="">
+                        <h5>Dr. Maria Angel</h5>
+                        <span>Plastic surgeon</span>
+                        <div class="team__item__social">
+                            <a href="#"><i class="fa fa-facebook"></i></a>
+                            <a href="#"><i class="fa fa-twitter"></i></a>
+                            <a href="#"><i class="fa fa-instagram"></i></a>
+                            <a href="#"><i class="fa fa-dribbble"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 col-sm-6">
+                    <div class="team__item">
+                        <img src="img/team/team-3.jpg" alt="">
+                        <h5>Nathan Mullins</h5>
+                        <span>Plastic surgeon</span>
+                        <div class="team__item__social">
+                            <a href="#"><i class="fa fa-facebook"></i></a>
+                            <a href="#"><i class="fa fa-twitter"></i></a>
+                            <a href="#"><i class="fa fa-instagram"></i></a>
+                            <a href="#"><i class="fa fa-dribbble"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section> -->
+    <!-- Team Section End -->
+
+    <!-- Gallery Begin -->
+    <!-- <div class="gallery container">
+        <div class="gallery__container">
+            <div class="grid-sizer"></div>
+            <div class="gc__item set-bg" data-setbg="img/gallery/gallery-1.jpg">
+                <a href="img/gallery/gallery-1.jpg" class="image-popup"><i class="fa fa-search-plus"></i></a>
+            </div>
+            <div class="gc__item set-bg" data-setbg="img/gallery/gallery-2.jpg">
+                <a href="img/gallery/gallery-2.jpg" class="image-popup"><i class="fa fa-search-plus"></i></a>
+            </div>
+            <div class="gc__item set-bg" data-setbg="img/gallery/gallery-3.jpg">
+                <a href="img/gallery/gallery-3.jpg" class="image-popup"><i class="fa fa-search-plus"></i></a>
+            </div>
+            <div class="gc__item gc__item__large set-bg" data-setbg="img/gallery/gallery-4.jpg">
+                <a href="img/gallery/gallery-4.jpg" class="image-popup"><i class="fa fa-search-plus"></i></a>
+            </div>
+            <div class="gc__item set-bg" data-setbg="img/gallery/gallery-5.jpg">
+                <a href="img/gallery/gallery-5.jpg" class="image-popup"><i class="fa fa-search-plus"></i></a>
+            </div>
+            <div class="gc__item set-bg" data-setbg="img/gallery/gallery-6.jpg">
+                <a href="img/gallery/gallery-6.jpg" class="image-popup"><i class="fa fa-search-plus"></i></a>
+            </div>
+            <div class="gc__item set-bg" data-setbg="img/gallery/gallery-7.jpg">
+                <a href="img/gallery/gallery-7.jpg" class="image-popup"><i class="fa fa-search-plus"></i></a>
+            </div>
+        </div>
+    </div> -->
+    <!-- Gallery End -->
+
+    <!-- Latest News Begin -->
+    <section class="latest spad">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-md-8 col-sm-6">
+                    <div class="section-title">
+                        <h2>Frequently Asked Questions</h2>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-4 col-sm-6">
+                    <div class="latest__btn">
+                        <a href="faq.html" class="primary-btn">View all Faq</a>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-4 col-md-6 col-sm-6">
+                    <div class="latest__item">
+                        <h5><a href="faq.html">When to Call?</a></h5>
+                        <p>Our BIEN NAITRE CLINIC is open from 8am-5pm Monday through Sunday. Telephone triage is
+                            available
+                            during these times by your ...</p>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 col-sm-6">
+                    <div class="latest__item">
+                        <h5><a href="faq.html">Your Clinic Visits</a></h5>
+                        <p>At your initial prenatal visit, a review of your medical and obstetrical history will be
+                            obtained, and
+                            a complete physical exam, including ...</p>
+
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 col-sm-6">
+                    <div class="latest__item">
+                        <h5><a href="faq.html">Who Will Deliver Your Baby?</a></h5>
+                        <p>Our group assigns one doctor to be on call at the hospital on a rotating basis for 24-hour
+                            shifts.
+                            This physician is responsible for all ...</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Latest News End -->
+
+    <!-- Footer Section Begin -->
+    <footer class="footer">
+        <div class="footer__top">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-4 col-md-4">
+                        <div class="footer__logo">
+                            <a href="#"><img src="img/footer-logo.png" alt=""></a>
+                        </div>
+                    </div>
+                    <!-- <div class="col-lg-4 col-md-8">
+                        <div class="footer__newslatter">
+                            <form action="#">
+                                <input type="text" placeholder="Email">
+                                <button type="submit" class="site-btn">Subscribe</button>
+                            </form>
+                        </div>
+                    </div> -->
+                    <div class="col-lg-4 col-md-12">
+                        <div class="footer__social">
+                            <a href="#"><i class="fa fa-facebook"></i></a>
+                            <a href="#"><i class="fa fa-twitter"></i></a>
+                            <a href="#"><i class="fa fa-instagram"></i></a>
+                            <a href="#"><i class="fa fa-dribbble"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-2 col-md-3 col-sm-6">
+                    <div class="footer__widget">
+                        <h5>Company</h5>
+                        <ul>
+                            <li><a href="#make_appointment">Appointment</a></li>
+                            <li><a href="about.html">About Us</a></li>
+                            <li><a href="services.html">Services</a></li>
+                            <li><a href="contact.html">Contact</a></li>
+                            <li><a href="faq.html">FAQ</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-3 col-sm-6">
+                    <div class="footer__widget">
+                        <h5>Quick links</h5>
+                        <ul>
+                            <li><a href="services.html">Breast exams</a></li>
+                            <li><a href="services.html">Contraception</a></li>
+                            <li><a href="services.html">General gynecology</a></li>
+                            <li><a href="services.html">General physicals</a></li>
+                            <li><a href="services.html">Pelvic exams</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 col-sm-6">
+                    <div class="footer__address">
+                        <h5>Contact Us</h5>
+                        <ul>
+                            <li><i class="fa fa-map-marker"></i> NYARUGENGE - KIGALI CITY</li>
+                            <li><i class="fa fa-phone"></i> +250-788-454-647</li>
+                            <li><i class="fa fa-envelope"></i> cliniquebiennaitre@yahoo.fr</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-12 col-sm-6">
+                    <div class="footer__map">
+                        <iframe src="https://maps.google.com/maps?q=clinique%20bien&t=&z=13&ie=UTF8&iwloc=&output=embed"
+                            height="190" style="border:0" allowfullscreen=""></iframe>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer__copyright">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-7">
+                        <div class="footer__copyright__text">
+                            <p>Copyright &copy;
+                                <script>document.write(new Date().getFullYear());</script> All rights reserved | CBN
+                        </div>
+                    </div>
+                    <div class="col-lg-5">
+                        <ul>
+                            <li>All Rights Reserved</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- Footer Section End -->
+
+    <!-- angular -->
+    <script src="js/angular.js"></script>
+    <!-- custom js -->
+    <script src="js/custom.js"></script>
+    <!-- sweetAlert -->
+    <script src="js/sweetalert1.js"></script>
+    <!-- <script src="js/sweetalert2.js"></script> -->
+    <!-- Js Plugins -->
+    <script src="js/jquery-3.3.1.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/jquery.magnific-popup.min.js"></script>
+    <script src="js/masonry.pkgd.min.js"></script>
+    <script src="js/jquery-ui.min.js"></script>
+    <!-- <script src="js/jquery.nice-select.min.js"></script> -->
+    <script src="js/jquery.slicknav.js"></script>
+    <script src="js/owl.carousel.min.js"></script>
+    <script src="js/main.js"></script>
+    <script src="node_modules/angular-utils-pagination/dirPagination.js"></script>
+
+</body>
+
+</html>

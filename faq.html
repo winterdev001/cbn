@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html lang="eng">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="developer" content="bahatipatrick05@gmail.com">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>CBN</title>
+
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&amp;display=swap"
+    rel="stylesheet">
+
+  <!-- Css Styles -->
+  <link rel="stylesheet" href="css/bootstrap.min.css" type="text/css">
+  <link rel="stylesheet" href="css/font-awesome.min.css" type="text/css">
+  <link rel="stylesheet" href="css/flaticon.css" type="text/css">
+  <link rel="stylesheet" href="css/nice-select.css" type="text/css">
+  <link rel="stylesheet" href="css/jquery-ui.min.css" type="text/css">
+  <link rel="stylesheet" href="css/magnific-popup.css" type="text/css">
+  <link rel="stylesheet" href="css/owl.carousel.min.css" type="text/css">
+  <link rel="stylesheet" href="css/slicknav.min.css" type="text/css">
+  <link rel="stylesheet" href="css/style.css" type="text/css">
+</head>
+
+<body ng-app="myApp" ng-controller="faqCtlr">
+  <!-- Page Preloder -->
+  <!-- <div id="preloder">
+            <div class="loader"></div>
+        </div> -->
+
+  <!-- Offcanvas Menu Begin -->
+  <div class="offcanvas-menu-overlay"></div>
+  <div class="offcanvas-menu-wrapper">
+    <div class="offcanvas__logo">
+      <a href="index.html"><img src="img/logo.png" alt=""></a>
+    </div>
+    <div id="mobile-menu-wrap"></div>
+    <div class="offcanvas__btn">
+      <a href="#make_appointment" class="primary-btn">Appointment</a>
+    </div>
+    <ul class="offcanvas__widget">
+      <li><i class="fa fa-phone"></i> +250-788-454-647</li>
+      <li><i class="fa fa-map-marker"></i> NYARUGENGE - KIGALI CITY </li>
+      <li><i class="fa fa-clock-o"></i> Mon to Sat 9:00am to 18:00pm</li>
+    </ul>
+    <div class="offcanvas__social">
+      <a href="#"><i class="fa fa-facebook"></i></a>
+      <a href="#"><i class="fa fa-twitter"></i></a>
+      <a href="#"><i class="fa fa-instagram"></i></a>
+      <a href="#"><i class="fa fa-dribbble"></i></a>
+    </div>
+  </div>
+  <!-- Offcanvas Menu End -->
+
+  <!-- Header Section Begin -->
+  <header class="header">
+    <div class="header__top">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8">
+            <ul class="header__top__left">
+              <li><i class="fa fa-phone"></i> +250-788-454-647</li>
+              <li><i class="fa fa-map-marker"></i> NYARUGENGE - KIGALI CITY </li>
+              <li><i class="fa fa-clock-o"></i> Mon to Sat 9:00am to 18:00pm</li>
+            </ul>
+          </div>
+          <div class="col-lg-4">
+            <div class="header__top__right">
+              <a href="#"><i class="fa fa-facebook"></i></a>
+              <a href="#"><i class="fa fa-twitter"></i></a>
+              <a href="#"><i class="fa fa-instagram"></i></a>
+              <a href="#"><i class="fa fa-dribbble"></i></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-2">
+          <div class="header__logo">
+            <a href="index.html"><img src="img/logo.png" alt=""></a>
+          </div>
+        </div>
+        <div class="col-lg-10">
+          <div class="header__menu__option">
+            <nav class="header__menu">
+              <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="services.html">Services</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li class="active"><a href="faq.html">FAQ</a></li>
+                <li ng-show="admin_link"><a href="admin.html">Admin</a></li>
+              </ul>
+            </nav>
+            <div class="header__btn">
+              <a href="#make_appointment" class="primary-btn">Appointment</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="canvas__open">
+        <i class="fa fa-bars"></i>
+      </div>
+    </div>
+  </header>
+  <!-- Header Section End -->
+
+  <!-- Breadcrumb Section Begin -->
+  <section class="breadcrumb-option spad set-bg" data-setbg="img/breadcrumb-bg.jpg">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-12 text-center">
+          <div class="breadcrumb__text">
+            <h2>Contact Us</h2>
+            <div class="breadcrumb__links">
+              <a href="index.html">Home</a>
+              <span>Faq</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- Breadcrumb Section End -->
+  <!-- faq section begin-->
+  <section class="contact spad">
+    <div class="container ">
+      <div class=" row ">
+        <div class=" col-md-12 faq_image d-flex justify-content-center">
+          <img src="img/services/undraw_Questions_re_1fy7.svg" width="40%" alt="">
+        </div>
+        <div class="description container">
+          <h2 class="text-center text-default mt-5">Frequently asked Questions</h2>
+          <p>
+            BIEN NAITRE CLINIC, are committed to providing the best possible care to you and your family during your
+            pregnancy. If you should have any questions or concerns regarding this care, we encourage you to express
+            them with our physicians, nurse practitioners or nursing staff.<br>
+
+            Below are a few details about our practice and what to expect during your prenatal care.
+
+          </p>
+        </div>
+        <div class="col-md-12 faq_item mt-5 d-flex justify-content-center">
+          <div class="accordion" id="accordionExample">
+            <div class="card">
+              <div class="card-header" id="headingOne">
+                <h2 class="mb-0">
+                  <button class="btn btn-link btn-block text-left text-default" type="button" data-toggle="collapse"
+                    data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                    # When to Call
+                  </button>
+                </h2>
+              </div>
+
+              <div id="collapseOne" class="collapse show about__text" aria-labelledby="headingOne"
+                data-parent="#accordionExample">
+                <div class="card-body">
+                  Our BIEN NAITRE CLINIC is open from 8am-5pm Monday through Sunday. Telephone triage is available
+                  during these times by your physician’s nurse. After hours and on weekends, the physician on call is
+                  available by calling us.
+
+                  It is appreciated if routine questions are handled during office hours, but you should not hesitate to
+                  call if you have a serious accident or illness, questions regarding possible labor or any of the
+                  following:
+                  <ul>
+                    <li><i class="fa fa-check-circle"></i> Vaginal bleeding at any time during the pregnancy </li>
+                    <li><i class="fa fa-check-circle"></i> Severe nausea or vomiting for more than 24 hours </li>
+                    <li><i class="fa fa-check-circle"></i> Extreme swelling of the feet, hands or face </li>
+                    <li><i class="fa fa-check-circle"></i> Chills or fever over 101 degrees </li>
+                    <li><i class="fa fa-check-circle"></i> Pain or burning with urination </li>
+                    <li><i class="fa fa-check-circle"></i> Severe or continuous abdominal pain </li>
+                    <li><i class="fa fa-check-circle"></i> Leakage of fluid from the vagina </li>
+                    <li><i class="fa fa-check-circle"></i> Contractions more than four per hour before 36 weeks </li>
+                    <li><i class="fa fa-check-circle"></i> Lack of fetal movement (less than eight fetal movements in
+                      two hours) after 28 weeks </li>
+                  </ul>
+
+                </div>
+              </div>
+            </div>
+            <div class="card">
+              <div class="card-header" id="headingTwo">
+                <h2 class="mb-0">
+                  <button class="btn btn-link btn-block text-left collapsed text-default" type="button"
+                    data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                    # Your Clinic Visits
+                  </button>
+                </h2>
+              </div>
+              <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
+                <div class="card-body">
+                  At your initial prenatal visit, a review of your medical and obstetrical history will be obtained, and
+                  a complete physical exam, including a breast and pelvic exam with pap smear and routine cultures, will
+                  be performed. An ultrasound to establish fetal well-being and to confirm your estimated due date also
+                  might be performed. <br><br>
+
+                  You will also select or be assigned a primary doctor who will order your lab tests and develop a plan
+                  of care for your pregnancy. You may choose to schedule all of your following visits with that doctor,
+                  or choose to see any of our doctors or nurse practitioners (scheduling conflicts may at times require
+                  this).<br><br>
+
+                  At subsequent visits, your weight, blood pressure, fetal heart tones and uterine growth will be
+                  assessed. After 30 weeks of pregnancy, you will give a urine sample at each visit, which is checked
+                  for protein and sugar.<br><br>
+
+                  These visits also provide time for you to ask questions and share your concerns. Typically, you will
+                  be seen every four weeks until approximately 30 weeks of pregnancy, then every two weeks until 36
+                  weeks. After that, you will be seen weekly until delivery. Any complications may necessitate more
+                  frequent visits.
+                </div>
+              </div>
+            </div>
+            <div class="card">
+              <div class="card-header" id="headingThree">
+                <h2 class="mb-0">
+                  <button class="btn btn-link btn-block text-left collapsed text-default" type="button"
+                    data-toggle="collapse" data-target="#collapseThree" aria-expanded="false"
+                    aria-controls="collapseThree">
+                    # Routine Testing During Pregnancy
+                  </button>
+                </h2>
+              </div>
+              <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
+                <div class="card-body">
+                  During the course of your prenatal care, different tests to ensure the health of your baby will be
+                  offered if needed. At your initial visit, in addition to an ultrasound, pap smear and cultures, a
+                  series of blood tests will be drawn. <br><br>
+
+                  Early in the pregnancy, between eight and 16 weeks, various genetic tests or screens (first-trimester
+                  screen, cystic fibrosis screening, chorionic villus sampling, amniocentesis, quad screen) may be
+                  offered to you; each of these will be explained in detail by our staff if appropriate for you.
+                  <br><br>
+
+                  At 20 weeks, an ultrasound to check for fetal anatomy and growth will be offered. At 26 to 30 weeks, a
+                  blood sample to screen for diabetes of pregnancy and anemia will be ordered. After 35 weeks, a vaginal
+                  culture for group B streptococcus is performed. Other testing may be discussed based upon your
+                  pregnancy.
+
+                </div>
+              </div>
+            </div>
+            <div class="card">
+              <div class="card-header" id="headingFour">
+                <h2 class="mb-0">
+                  <button class="btn btn-link btn-block text-left collapsed text-default" type="button"
+                    data-toggle="collapse" data-target="#collapseFour" aria-expanded="false"
+                    aria-controls="collapseFour">
+                    # Who Will Deliver Your Baby?
+                  </button>
+                </h2>
+              </div>
+              <div id="collapseFour" class="collapse" aria-labelledby="headingFour" data-parent="#accordionExample">
+                <div class="card-body">
+                  Our group assigns one doctor to be on call at the hospital on a rotating basis for 24-hour shifts.
+                  This physician is responsible for all deliveries and emergencies during his or her shift. This system
+                  helps to ensure that our office runs as close to schedule as possible and that the physician
+                  delivering your baby has no other responsibilities.
+                </div>
+              </div>
+            </div>
+            <div class="card">
+              <div class="card-header" id="headingFive">
+                <h2 class="mb-0">
+                  <button class="btn btn-link btn-block text-left collapsed text-default" type="button"
+                    data-toggle="collapse" data-target="#collapseFive" aria-expanded="false"
+                    aria-controls="collapseFive">
+                    # Obstetrics & Gynecology Consultation Concerns
+                  </button>
+                </h2>
+              </div>
+              <div id="collapseFive" class="collapse" aria-labelledby="headingFive" data-parent="#accordionExample">
+                <div class="card-body">
+                  For routine gynecological care, patients can choose to see one of our obstetrician/gynecology
+                  specialists or our certified nurse-midwives, advanced practice providers or. Our team will also
+                  include specialists who focus only on urogynecology, female pelvic medicine/reconstructive surgery and
+                  gynecological oncology.
+                </div>
+              </div>
+            </div>
+            <div class="card">
+              <div class="card-header" id="headingSix">
+                <h2 class="mb-0">
+                  <button class="btn btn-link btn-block text-left collapsed text-default" type="button"
+                    data-toggle="collapse" data-target="#collapseSix" aria-expanded="false" aria-controls="collapseSix">
+                    # Obstetrics & Gynecology Consultation Concerns
+                  </button>
+                </h2>
+              </div>
+              <div id="collapseSix" class="collapse about__text" aria-labelledby="headingSix"
+                data-parent="#accordionExample">
+                <div class="card-body">
+                  <h5 class="text-default">Menstruation </h5>
+                  <ul>
+                    <li><i class="fa fa-check-circle"></i> Irregular menstruation (heavy bleeding, prolonged periods)
+                    </li>
+                    <li><i class="fa fa-check-circle"></i> Premenstrual syndrome (PMS) </li>
+                  </ul>
+                  <h5 class="text-default">Menopause </h5>
+                  <ul>
+                    <li><i class="fa fa-check-circle"></i> Menopause (and midlife care/issues) </li>
+                  </ul>
+                  <h5 class="text-default">Pelvic Floor Disorders (PFDs) </h5>
+                  <ul>
+                    <li><i class="fa fa-check-circle"></i> Accidental bowel leakage (ABL) </li>
+                    <li><i class="fa fa-check-circle"></i> Urinary incontinence or leakage </li>
+                    <li><i class="fa fa-check-circle"></i> Pelvic organ abnormalities including prolapse, herniation,
+                      dysplasia or bulging </li>
+                  </ul>
+                  <h5 class="text-default">Other Conditions </h5>
+                  <ul>
+                    <li><i class="fa fa-check-circle"></i> Endometriosis </li>
+                    <li><i class="fa fa-check-circle"></i> Fibroids </li>
+                    <li><i class="fa fa-check-circle"></i> Fistulas </li>
+                    <li><i class="fa fa-check-circle"></i> Ovarian cysts </li>
+                    <li><i class="fa fa-check-circle"></i> Pelvic pain </li>
+                    <li><i class="fa fa-check-circle"></i> Sexuality issues </li>
+                    <li><i class="fa fa-check-circle"></i> Sexually transmitted diseases </li>
+                    <li><i class="fa fa-check-circle"></i> Urinary tract infections </li>
+                    <li><i class="fa fa-check-circle"></i> Uterine, vaginal and vulvar issues </li>
+                    <li><i class="fa fa-check-circle"></i> Vaginal yeast infections </li>
+                    <li><i class="fa fa-check-circle"></i> Warts and premalignant lesions of the lower reproductive
+                      tract </li>
+                  </ul>
+
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- faq section end -->
+
+  <!-- Footer Section Begin -->
+  <footer class="footer">
+    <div class="footer__top">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-4 col-md-4">
+            <div class="footer__logo">
+              <a href="#"><img src="img/footer-logo.png" alt=""></a>
+            </div>
+          </div>
+          <!-- <div class="col-lg-4 col-md-8">
+                      <div class="footer__newslatter">
+                          <form action="#">
+                              <input type="text" placeholder="Email">
+                              <button type="submit" class="site-btn">Subscribe</button>
+                          </form>
+                      </div>
+                  </div> -->
+          <div class="col-lg-4 col-md-12">
+            <div class="footer__social">
+              <a href="#"><i class="fa fa-facebook"></i></a>
+              <a href="#"><i class="fa fa-twitter"></i></a>
+              <a href="#"><i class="fa fa-instagram"></i></a>
+              <a href="#"><i class="fa fa-dribbble"></i></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-2 col-md-3 col-sm-6">
+          <div class="footer__widget">
+            <h5>Company</h5>
+            <ul>
+              <li><a href="#make_appointment">Appointment</a></li>
+              <li><a href="about.html">About Us</a></li>
+              <li><a href="services.html">Services</a></li>
+              <li><a href="contact.html">Contact</a></li>
+              <li><a href="faq.html">FAQ</a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="col-lg-2 col-md-3 col-sm-6">
+          <div class="footer__widget">
+            <h5>Quick links</h5>
+            <ul>
+              <li><a href="services.html">Breast exams</a></li>
+              <li><a href="services.html">Contraception</a></li>
+              <li><a href="services.html">General gynecology</a></li>
+              <li><a href="services.html">General physicals</a></li>
+              <li><a href="services.html">Pelvic exams</a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="col-lg-4 col-md-6 col-sm-6">
+          <div class="footer__address">
+            <h5>Contact Us</h5>
+            <ul>
+              <li><i class="fa fa-map-marker"></i> NYARUGENGE - KIGALI CITY</li>
+              <li><i class="fa fa-phone"></i> +250-788-454-647</li>
+              <li><i class="fa fa-envelope"></i> cliniquebiennaitre@yahoo.fr</li>
+            </ul>
+          </div>
+        </div>
+        <div class="col-lg-4 col-md-12 col-sm-6">
+          <div class="footer__map">
+            <iframe src="https://maps.google.com/maps?q=clinique%20bien&t=&z=13&ie=UTF8&iwloc=&output=embed"
+              height="190" style="border:0" allowfullscreen=""></iframe>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="footer__copyright">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-7">
+            <div class="footer__copyright__text">
+              <p>Copyright &copy;
+                <script>document.write(new Date().getFullYear());</script> All rights reserved | CBN
+            </div>
+          </div>
+          <div class="col-lg-5">
+            <ul>
+              <li>All Rights Reserved</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+  <!-- Footer Section End -->
+  <!-- Modal -->
+  <!-- appointment -->
+  <!-- Modal end -->
+  <!-- angular -->
+  <script src="js/angular.js"></script>
+  <!-- custom js -->
+  <script src="js/custom.js"></script>
+  <!-- sweetAlert -->
+  <script src="js/sweetalert1.js"></script>
+  <!-- Js Plugins -->
+  <script src="js/jquery-3.3.1.min.js"></script>
+  <script src="js/bootstrap.min.js"></script>
+  <script src="js/jquery.magnific-popup.min.js"></script>
+  <script src="js/masonry.pkgd.min.js"></script>
+  <script src="js/jquery-ui.min.js"></script>
+  <script src="js/jquery.nice-select.min.js"></script>
+  <script src="js/jquery.slicknav.js"></script>
+  <script src="js/owl.carousel.min.js"></script>
+  <script src="js/main.js"></script>
+  <script src="node_modules/angular-utils-pagination/dirPagination.js"></script>
+
+</body>
+
+
+</html>

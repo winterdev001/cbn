@@ -1,0 +1,587 @@
+<!DOCTYPE html>
+<html lang="eng">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="developer" content="bahatipatrick05@gmail.com">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>CBN</title>
+
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&amp;display=swap"
+        rel="stylesheet">
+
+    <!-- Css Styles -->
+    <link rel="stylesheet" href="css/bootstrap.min.css" type="text/css">
+    <link rel="stylesheet" href="css/font-awesome.min.css" type="text/css">
+    <link rel="stylesheet" href="css/flaticon.css" type="text/css">
+    <link rel="stylesheet" href="css/nice-select.css" type="text/css">
+    <link rel="stylesheet" href="css/jquery-ui.min.css" type="text/css">
+    <link rel="stylesheet" href="css/magnific-popup.css" type="text/css">
+    <link rel="stylesheet" href="css/owl.carousel.min.css" type="text/css">
+    <link rel="stylesheet" href="css/slicknav.min.css" type="text/css">
+    <link rel="stylesheet" href="css/style.css" type="text/css">
+</head>
+
+<body ng-app="myApp" ng-controller="aboutCtlr">
+    <!-- Page Preloder -->
+    <!-- <div id="preloder">
+        <div class="loader"></div>
+    </div> -->
+
+    <!-- Offcanvas Menu Begin -->
+    <div class="offcanvas-menu-overlay"></div>
+    <div class="offcanvas-menu-wrapper">
+        <div class="offcanvas__logo">
+            <a href="index.html"><img src="img/logo.png" alt=""></a>
+        </div>
+        <div id="mobile-menu-wrap"></div>
+        <div class="offcanvas__btn">
+            <a href="#make_appointment" class="primary-btn">Appointment</a>
+        </div>
+        <ul class="offcanvas__widget">
+            <li><i class="fa fa-phone"></i> 1-677-124-44227</li>
+            <li><i class="fa fa-map-marker"></i> Los Angeles Gournadi, 1230 Bariasl</li>
+            <li><i class="fa fa-clock-o"></i> Mon to Sat 9:00am to 18:00pm</li>
+        </ul>
+        <div class="offcanvas__social">
+            <a href="#"><i class="fa fa-facebook"></i></a>
+            <a href="#"><i class="fa fa-twitter"></i></a>
+            <a href="#"><i class="fa fa-instagram"></i></a>
+            <a href="#"><i class="fa fa-dribbble"></i></a>
+        </div>
+    </div>
+    <!-- Offcanvas Menu End -->
+
+    <!-- Header Section Begin -->
+    <header class="header">
+        <div class="header__top">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-8">
+                        <ul class="header__top__left">
+                            <li><i class="fa fa-phone"></i> +250-788-454-647</li>
+                            <li><i class="fa fa-map-marker"></i> NYARUGENGE - KIGALI CITY </li>
+                            <li><i class="fa fa-clock-o"></i> Mon to Sat 9:00am to 18:00pm</li>
+                        </ul>
+                    </div>
+                    <div class="col-lg-4">
+                        <div class="header__top__right">
+                            <a href="#"><i class="fa fa-facebook"></i></a>
+                            <a href="#"><i class="fa fa-twitter"></i></a>
+                            <a href="#"><i class="fa fa-instagram"></i></a>
+                            <a href="#"><i class="fa fa-dribbble"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-2">
+                    <div class="header__logo">
+                        <a href="index.html"><img src="img/logo.png" alt=""></a>
+                    </div>
+                </div>
+                <div class="col-lg-10">
+                    <div class="header__menu__option">
+                        <nav class="header__menu">
+                            <ul>
+                                <li><a href="index.html">Home</a></li>
+                                <li class="active"><a href="about.html">About</a></li>
+                                <li><a href="services.html">Services</a></li>
+                                <li><a href="contact.html">Contact</a></li>
+                                <li><a href="faq.html">FAQ</a></li>
+                                <li ng-show="admin_link"><a href="admin.html">Admin</a></li>
+                            </ul>
+                        </nav>
+                        <div class="header__btn">
+                            <a href="#" data-toggle= "modal" data-target="#book_appointment" class="primary-btn">Appointment</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="canvas__open">
+                <i class="fa fa-bars"></i>
+            </div>
+        </div>
+    </header>
+    <!-- Header Section End -->
+
+    <!-- Breadcrumb Section Begin -->
+    <section class="breadcrumb-option spad set-bg" data-setbg="img/breadcrumb-bg.jpg">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <div class="breadcrumb__text">
+                        <h2>About Us</h2>
+                        <div class="breadcrumb__links">
+                            <a href="index.html">Home</a>
+                            <span>About</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Breadcrumb Section End -->
+
+    <!-- About Section Begin -->
+    <section class="about spad">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6 col-md-6">
+                    <div class="about__video set-bg" data-setbg="img/about-video.jpg">
+                        <a href="https://www.youtube.com/watch?v=PXsuI67s2AA" class="play-btn video-popup"><i
+                                class="fa fa-play"></i></a>
+                    </div>
+                </div>
+                <div class="col-lg-6 col-md-6">
+                    <div class="about__text">
+                        <div class="section-title">
+                            <span>ABOUT OUR CLINIC</span>
+                            <h2>Welcome to CBN</h2>
+                        </div>
+                        <p>We have built trust and customer for life culture that has brought many women to our clinic
+                            and we are still receiving much more new client and cases which has increased both our
+                            career experience and customer experience.</p>
+                        <ul>
+                            <li> <strong>Common Patient Concerns</strong></li>
+                            <li><i class="fa fa-check-circle"></i> Menstruation</li>
+                            <li><i class="fa fa-check-circle"></i> Menopause</li>
+                            <li><i class="fa fa-check-circle"></i> Pelvic Floor Disorders (PFDs)</li>
+                        </ul>
+                        <a href="contact.html" class="primary-btn normal-btn">Contact us</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- About Section End -->
+    <!-- background -->
+    <section class="mt-5">
+        <div class="d-flex justify-content-center">
+            <div class="col-lg-10 ">
+                <div class="testimonial__item about__text">
+                    <div class="testimonial__author">
+                        <div class="testimonial__author__text text-center">
+                            <h5>BIEN NAÎTRE CLINIC PROFILE</h5>
+                        </div>
+                    </div>
+                    <p>
+                        In 2000, Dr Nkundabagenzi Secyugu Jean Claude, was working with a public organization Hospital.
+                        Where he met
+                        many high risk pregnancy and saw that they need a special care and specialized treatment. And
+                        Decide to
+                        start a privet Clinique. This was our beginning! <br>
+
+                        Since as early as 2006, the statutes of the BIEN NAÎTRE clinic has been placing emphasis on the
+                        quality of
+                        pregnant women especially high risk cases. This tradition remains a priority for us, but going
+                        forward it
+                        includes as well the smooth operation of all services: <br>
+                    <ul>
+                        <li><i class="fa fa-check-circle"></i> Care is regularly adapted to the evolving healthcare
+                            needs of the population,</li>
+                        <li><i class="fa fa-check-circle"></i> Cutting-edge medical practices are adopted as soon as
+                            they are proven reliable,</li>
+                        <li><i class="fa fa-check-circle"></i> Technical support centers are reconfigured in keeping
+                            with innovations,</li>
+                        <li><i class="fa fa-check-circle"></i> The development of funding methods and health policy
+                            repercussions are taken into account.
+                        </li>
+                    </ul>
+                    Patients benefit on a regular basis from initiatives and innovations generated by the dynamism and
+                    professionalism of the members of our clinic:
+                    <ul>
+                        <li><i class="fa fa-check-circle"></i> Special care and treatment of high risk pregnancies,</li>
+                        <li><i class="fa fa-check-circle"></i> gynecological laparoscopy surgery,</li>
+                        <li><i class="fa fa-check-circle"></i> prenatal and postnatal diagnosis</li>
+                        <li><i class="fa fa-check-circle"></i> More Treatment and of very high risk pregnancies</li>
+                    </ul> <br>
+
+                    <span style="font-family: 'Poppins', sans-serif;">Leaders, in region in obstetric & gynecologist
+                        both in delivery, surgery and hospitalization and
+                        much more
+                        psychosocial life of the mother ant the new born. <br>
+
+                        He saw that the region was in a great need of a specialized privet Clinique that would benefit
+                        who
+                        lived and
+                        worked at the hospital in a spirit of devotion and self-denial, as instructed by the order of
+                        Bien
+                        Naître
+                        Clinic.<br>
+
+                        The Clinic has opened the door in 2006. In 2007 we have been officially certified by the
+                        Ministry of
+                        Health
+                        to operate as a specialized Clinique. From then now we are in this for 13years of
+                        experiences.<br>
+
+                        We have built trust and customer for life culture that has brought many women to our clinic and
+                        we
+                        are still
+                        receiving much more new client and cases which has increased both our career experience and
+                        customer
+                        experience.</span>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- background end -->
+    <!-- Chooseus Section Begin -->
+    <section class="chooseus spad">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <div class="section-title">
+                        <span>Why choose us?</span>
+                        <h2>Offer for you</h2>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-3 col-md-6 col-sm-6">
+                    <div class="chooseus__item">
+                        <img src="img/icons/ci-1.png" alt="">
+                        <h5>Advanced equipment</h5>
+                        <p>Lorem ipsum amet, consectetur adipiscing elit, sed do eiusmod tempor cididunt facilisis.</p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 col-sm-6">
+                    <div class="chooseus__item">
+                        <img src="img/icons/ci-2.png" alt="">
+                        <h5>Qualified doctors</h5>
+                        <p>Lorem ipsum amet, consectetur adipiscing elit, sed do eiusmod tempor cididunt facilisis.</p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 col-sm-6">
+                    <div class="chooseus__item">
+                        <img src="img/icons/ci-3.png" alt="">
+                        <h5>Certified services</h5>
+                        <p>Lorem ipsum amet, consectetur adipiscing elit, sed do eiusmod tempor cididunt facilisis.</p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 col-sm-6">
+                    <div class="chooseus__item">
+                        <img src="img/icons/ci-4.png" alt="">
+                        <h5>Emergency care</h5>
+                        <p>Lorem ipsum amet, consectetur adipiscing elit, sed do eiusmod tempor cididunt facilisis.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Chooseus Section End -->
+
+    <!-- Testimonials Section Begin -->
+    <section class="testimonials spad">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <div class="section-title">
+                        <span>Vision, Mission & Core Values</span>
+                        <!-- <h2>Happy clients</h2> -->
+                    </div>
+                </div>
+            </div>
+            <div class="container">
+                <div class="d-flex justify-content-center">
+                    <div class="col-lg-6 ">
+                        <div class="testimonial__item">
+                            <div class="testimonial__author">
+                                <div class="testimonial__author__icon">
+                                    <i class="fa fa-quote-left"></i>
+                                </div>
+                                <div class="testimonial__author__text">
+                                    <h5>VISION STATEMENT</h5>
+                                    <!-- <span>Businesswoman</span> -->
+                                </div>
+                            </div>
+
+                            <p>To provide World Class Quality Health Care to the citizens of East-African region to
+                                insure the quality of our services are on a high value on affordable cost without
+                                compromising on quality.</p>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="testimonial__item about__text">
+                            <div class="testimonial__author">
+                                <div class="testimonial__author__icon">
+                                    <i class="fa fa-quote-left"></i>
+                                </div>
+                                <div class="testimonial__author__text">
+                                    <h5>MISSION STATEMENT</h5>
+                                    <!-- <span>Businesswoman</span> -->
+                                </div>
+                            </div>
+
+                            <p>
+                            <ul>
+                                <li> <strong>Committed to <span class="text-success"> CARE</span></strong> </li>
+                                <li><i class="fa fa-check-circle"></i> <span class="text-success"> C </span>- <span
+                                        class="text-success">C</span>ompassion: Putting you in the place of another,
+                                    treating others with kindness, concern and generosity.</li>
+                                <li><i class="fa fa-check-circle"></i> <span class="text-success"> A </span>- <span
+                                        class="text-success">A</span>ccountability: Accepting responsibility for
+                                    behavior, quality of work and the outcome.</li>
+                                <li><i class="fa fa-check-circle"></i> <span class="text-success"> R </span>- <span
+                                        class="text-success">R</span>espect: Treating others with courtesy, listening to
+                                    and valuing what others have to say.</li>
+                                <li><i class="fa fa-check-circle"></i> <span class="text-success"> E</span>- <span
+                                        class="text-success">E</span>xcellence: Always striving to provide the best care
+                                    and services continuously identifying opportunities to improve quality.</li>
+                            </ul>
+                            </p>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="testimonial__item">
+                            <div class="testimonial__author">
+                                <div class="testimonial__author__icon">
+                                    <i class="fa fa-quote-left"></i>
+                                </div>
+                                <div class="testimonial__author__text">
+                                    <h5>CORE VALUES</h5>
+                                    <!-- <span>Businesswoman</span> -->
+                                </div>
+                            </div>
+                            <p>
+                                The value system at Bien Naître Specialized Clinic is founded three pillars: <br>
+                                Service, Compassion and Integrity. <br>
+                                • Care, Compassion, Ethical Practices, Learn & Lead, Teamwork, Trust.
+
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Testimonials Section End -->
+
+    <!-- Team Section Begin -->
+    <!-- <section class="team spad">
+        <div class="">
+
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <div class="section-title">
+                        <span>Our Team</span>
+                        <h2>Our Expert Doctors</h2>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-4 col-md-6 col-sm-6">
+                    <div class="team__item">
+                        <img src="img/team/team-1.jpg" alt="">
+                        <h5>Caroline Grant</h5>
+                        <span>Plastic surgeon</span>
+                        <div class="team__item__social">
+                            <a href="#"><i class="fa fa-facebook"></i></a>
+                            <a href="#"><i class="fa fa-twitter"></i></a>
+                            <a href="#"><i class="fa fa-instagram"></i></a>
+                            <a href="#"><i class="fa fa-dribbble"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 col-sm-6">
+                    <div class="team__item">
+                        <img src="img/team/team-2.jpg" alt="">
+                        <h5>Dr. Maria Angel</h5>
+                        <span>Plastic surgeon</span>
+                        <div class="team__item__social">
+                            <a href="#"><i class="fa fa-facebook"></i></a>
+                            <a href="#"><i class="fa fa-twitter"></i></a>
+                            <a href="#"><i class="fa fa-instagram"></i></a>
+                            <a href="#"><i class="fa fa-dribbble"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 col-sm-6">
+                    <div class="team__item">
+                        <img src="img/team/team-3.jpg" alt="">
+                        <h5>Nathan Mullins</h5>
+                        <span>Plastic surgeon</span>
+                        <div class="team__item__social">
+                            <a href="#"><i class="fa fa-facebook"></i></a>
+                            <a href="#"><i class="fa fa-twitter"></i></a>
+                            <a href="#"><i class="fa fa-instagram"></i></a>
+                            <a href="#"><i class="fa fa-dribbble"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section> -->
+    <!-- Team Section End -->
+
+    <!-- Footer Section Begin -->
+    <footer class="footer">
+        <div class="footer__top">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-4 col-md-4">
+                        <div class="footer__logo">
+                            <a href="#"><img src="img/footer-logo.png" alt=""></a>
+                        </div>
+                    </div>
+                    <!-- <div class="col-lg-4 col-md-8">
+                        <div class="footer__newslatter">
+                            <form action="#">
+                                <input type="text" placeholder="Email">
+                                <button type="submit" class="site-btn">Subscribe</button>
+                            </form>
+                        </div>
+                    </div> -->
+                    <div class="col-lg-4 col-md-12">
+                        <div class="footer__social">
+                            <a href="#"><i class="fa fa-facebook"></i></a>
+                            <a href="#"><i class="fa fa-twitter"></i></a>
+                            <a href="#"><i class="fa fa-instagram"></i></a>
+                            <a href="#"><i class="fa fa-dribbble"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-2 col-md-3 col-sm-6">
+                    <div class="footer__widget">
+                        <h5>Company</h5>
+                        <ul>
+                            <li><a href="#make_appointment">Appointment</a></li>
+                            <li><a href="about.html">About Us</a></li>
+                            <li><a href="services.html">Services</a></li>
+                            <li><a href="contact.html">Contact</a></li>
+                            <li><a href="faq.html">FAQ</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-3 col-sm-6">
+                    <div class="footer__widget">
+                        <h5>Quick links</h5>
+                        <ul>
+                            <li><a href="services.html">Breast exams</a></li>
+                            <li><a href="services.html">Contraception</a></li>
+                            <li><a href="services.html">General gynecology</a></li>
+                            <li><a href="services.html">General physicals</a></li>
+                            <li><a href="services.html">Pelvic exams</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 col-sm-6">
+                    <div class="footer__address">
+                        <h5>Contact Us</h5>
+                        <ul>
+                            <li><i class="fa fa-map-marker"></i> NYARUGENGE - KIGALI CITY</li>
+                            <li><i class="fa fa-phone"></i> +250-788-454-647</li>
+                            <li><i class="fa fa-envelope"></i> cliniquebiennaitre@yahoo.fr</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-12 col-sm-6">
+                    <div class="footer__map">
+                        <iframe src="https://maps.google.com/maps?q=clinique%20bien&t=&z=13&ie=UTF8&iwloc=&output=embed"
+                            height="190" style="border:0" allowfullscreen=""></iframe>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer__copyright">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-7">
+                        <div class="footer__copyright__text">
+                            <p>Copyright &copy;
+                                <script>document.write(new Date().getFullYear());</script> All rights reserved | CBN
+                        </div>
+                    </div>
+                    <div class="col-lg-5">
+                        <ul>
+                            <li>All Rights Reserved</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- Footer Section End -->
+    <!-- Modal -->
+    <!-- appointment -->
+    <!-- Modal -->
+    <div class="modal fade" id="book_appointment" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <!-- <h5 class="modal-title" id="exampleModalLabel">Book Appointment</h5> -->
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="consultation__form mt-1">
+                        <div class="section-title">
+                            <span>REQUEST FOR YOUR</span>
+                            <h2>Consultation</h2>
+                        </div>
+                        <form  name="form">
+                            <input type="text" placeholder="Name" ng-model="client_name">
+                            <input type="text" placeholder="Email" ng-model="client_email" name="email"  ng-pattern="/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/">
+                            <div class="text-danger" ng-if="form.email.$dirty&&form.email.$error.pattern">*Enter correct Email Address!</div>
+                            <input type="tel" placeholder="Phone" ng-model="client_phone" name="phone" ng-pattern="/^[0-9]{1,10}$/">
+                            <div class="text-danger" ng-if="form.phone.$dirty&&form.phone.$error.pattern">*Enter correct  phone number!</div>
+                            <div class="datepicker__item">
+                                <input type="date" placeholder="Date" ng-model="client_date">
+                                <!-- <i class="fa fa-calendar"></i> -->
+                            </div>
+                            <select class="form-control mb-3" ng-model="client_service" >
+                                <option value="">Type of service</option>
+                                <option value="General Services">General Services</option>
+                                <option value="Obstetric care">Obstetric care</option>
+                                <option value="Echography">Echography</option>
+                                <option value="Laboratory">Laboratory</option>
+                                <option value="Delivery">Delivery</option>
+                                <option value="Gynecologique surgery">Gynecologique surgery</option>
+                                <option value="Neonatology">Neonatology</option>
+                            </select>
+                           
+                            <button type="submit" class="site-btn" ng-click="bookAppointment()">Book
+                                Appoitment</button>
+                        </form>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <!-- <button type="button" class="btn btn-primary">Save changes</button> -->
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Modal end -->
+    <!-- angular -->
+    <script src="js/angular.js"></script>
+    <!-- custom js -->
+    <script src="js/custom.js"></script>
+    <!-- sweetAlert -->
+    <script src="js/sweetalert1.js"></script>
+    <!-- Js Plugins -->
+    <script src="js/jquery-3.3.1.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/jquery.magnific-popup.min.js"></script>
+    <script src="js/masonry.pkgd.min.js"></script>
+    <script src="js/jquery-ui.min.js"></script>
+    <!-- <script src="js/jquery.nice-select.min.js"></script> -->
+    <script src="js/jquery.slicknav.js"></script>
+    <script src="js/owl.carousel.min.js"></script>
+    <script src="js/main.js"></script>
+    <script src="node_modules/angular-utils-pagination/dirPagination.js"></script>
+
+</body>
+
+</html>

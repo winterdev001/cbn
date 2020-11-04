@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="eng">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="developer" content="bahatipatrick05@gmail.com">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>CBN</title>
+
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&amp;display=swap"
+    rel="stylesheet">
+
+  <!-- Css Styles -->
+  <link rel="stylesheet" href="css/bootstrap.min.css" type="text/css">
+  <link rel="stylesheet" href="css/font-awesome.min.css" type="text/css">
+  <link rel="stylesheet" href="css/flaticon.css" type="text/css">
+  <link rel="stylesheet" href="css/nice-select.css" type="text/css">
+  <link rel="stylesheet" href="css/jquery-ui.min.css" type="text/css">
+  <link rel="stylesheet" href="css/magnific-popup.css" type="text/css">
+  <link rel="stylesheet" href="css/owl.carousel.min.css" type="text/css">
+  <link rel="stylesheet" href="css/slicknav.min.css" type="text/css">
+  <link rel="stylesheet" href="css/style.css" type="text/css">
+  <link rel="stylesheet" href="css/login.css" type="text/css">
+</head>
+
+<body ng-app="myApp" ng-controller="loginCtlr">
+  <!-- login begin -->
+  <div class="login-page">
+    <div class="form">
+      <form class="login-form">
+        <h3 class="text-center font-weight-bold mb-3 text-default">CBN Staff</h3>
+        <input type="text" ng-model="username" placeholder="username" required />
+        <input type="password" ng-model="password" placeholder="password" required />
+        <button class="btn btn-default font-weight-bold" ng-click="login()">Login</button>
+      </form>
+    </div>
+  </div>
+  <!-- login end -->
+  <!-- angular -->
+  <script src="js/angular.js"></script>
+  <!-- custom js -->
+  <script src="js/custom.js"></script>
+  <!-- sweetAlert -->
+  <script src="js/sweetalert1.js"></script>
+  <!-- Js Plugins -->
+  <script src="js/jquery-3.3.1.min.js"></script>
+  <script src="js/bootstrap.min.js"></script>
+  <script src="js/jquery.magnific-popup.min.js"></script>
+  <script src="js/masonry.pkgd.min.js"></script>
+  <script src="js/jquery-ui.min.js"></script>
+  <script src="js/jquery.nice-select.min.js"></script>
+  <script src="js/jquery.slicknav.js"></script>
+  <script src="js/owl.carousel.min.js"></script>
+  <script src="js/main.js"></script>
+  <script src="node_modules/angular-utils-pagination/dirPagination.js"></script>
+  <script>
+    $('.message a').click(function () {
+      $('form').animate({ height: "toggle", opacity: "toggle" }, "slow");
+    });
+  </script>
+</body>
+
+
+</html>
