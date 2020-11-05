@@ -200,7 +200,6 @@
                                             <th scope="col">Name</th>
                                             <th scope="col">Phone</th>
                                             <th scope="col">Service</th>
-                                            <th scope="col">Date</th>
                                             <th></th>
                                         </tr>
                                     </thead>
@@ -209,7 +208,6 @@
                                             <th scope="row">{{appoint.name}}</th>
                                             <td>0{{appoint.phone}}</td>
                                             <td>{{appoint.service}}</td>
-                                            <td>{{appoint.date}}</td>
                                             <td><button class="btn btn-default text-light"
                                                     ng-click="showAppointment(appoint.id)"><i
                                                         class="fa fa-external-link"></i></button></td>
@@ -266,7 +264,7 @@
                             </div>
                         </div>
                         <!-- messages end -->
-                        <!-- settingd begin -->
+                        <!-- settings begin -->
                         <div class="settings" ng-show="settings">
                             <div class="card">
                                 <div class="card-body">
@@ -429,19 +427,24 @@
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title" id="exampleModalLabel">{{appoint_name}}'s appointment</h5>
+                    <!-- <span class="badge badge-warning">{{appoint_status}}</span> -->
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
                 <div class="modal-body">
+                    <p class="modal-text">Status: 
+                        <span ng-class="{'badge badge-info' :appoint_status=='waiting','badge badge-success' :appoint_status=='accepted','badge badge-danger' :appoint_status=='rejected'}">
+                            <strong>{{appoint_status}}</strong></span></p>
                     <p class="modal-text">Client Name: <strong>{{appoint_name}}</strong></p>
                     <p class="modal-text">Client Email: <strong>{{appoint_email}}</strong></p>
                     <p class="modal-text">Client Phone: <strong>0{{appoint_phone}}</strong></p>
-                    <p class="modal-text">Appointment Date: <strong>{{appoint_date}}</strong></p>
                     <p class="modal-text">Type of Service : <strong>{{appoint_service}}</strong></p>
                     <p class="modal-text">Date Created : <strong class="text-muted">{{appoint_created_at}}</strong></p>
                 </div>
                 <div class="modal-footer">
+                    <button class="btn btn-success" ng-click="acceptAppointment(appoint_id)">Accept</button>
+                    <button class="btn btn-warning" ng-click="rejectAppointment(appoint_id)">reject</button>
                     <button type="button" class="btn btn-danger"
                         ng-click="deleteAppointment(appoint_id)">Delete</button>
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -476,10 +479,9 @@
                                 ng-pattern="/^[0-9]{1,10}$/">
                             <div class="text-danger" ng-if="form.phone.$dirty&&form.phone.$error.pattern">*Enter correct
                                 phone number!</div>
-                            <div class="datepicker__item">
+                            <!-- <div class="datepicker__item">
                                 <input type="date" placeholder="Date" ng-model="client_date">
-                                <!-- <i class="fa fa-calendar"></i> -->
-                            </div>
+                            </div> -->
                             <select class="form-control mb-3" ng-model="client_service">
                                 <option value="">Type of service</option>
                                 <option value="General Services">General Services</option>

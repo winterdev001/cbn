@@ -46,20 +46,12 @@ app.controller('indexCtlr', function ($scope, $http, $window) {
   $scope.authenticated();
 
   $scope.bookAppointment = () => {
-    if ($scope.client_name == null || $scope.client_email == null || $scope.client_date == null || $scope.client_service == null) {
+    if ($scope.client_name == null || $scope.client_email == null || $scope.client_service == null) {
       swal({
         title: "Ooops, fill all fields first.",
         icon: 'warning'
       });
     } else {
-      var new_date = new Date($scope.client_date);
-      var date = new_date.getDate();
-      if (date < 10) { var nu_date = ("0" + new_date.getDate()).slice(-2); } else { var nu_date = new_date.getDate(); }
-      var month = new_date.getMonth() + 1; // Since getMonth() returns month from 0-11 not 1-12
-      if (month < 10) { var new_month = ("0" + (new_date.getMonth() + 1)).slice(-2); } else { var new_month = new_date.getMonth() + 1; }
-      var year = new_date.getFullYear();
-      var changed_date = nu_date + "-" + new_month + "-" + year;
-      // console.log(changed_date)
 
       $http({
         method: 'POST',
@@ -68,7 +60,6 @@ app.controller('indexCtlr', function ($scope, $http, $window) {
           'name': $scope.client_name,
           'email': $scope.client_email,
           'phone': $scope.client_phone,
-          'date': changed_date,
           'service': $scope.client_service
         }
       }).then((response) => {
@@ -115,21 +106,13 @@ app.controller('aboutCtlr', function ($scope, $http, $window) {
 
   $scope.bookAppointment = () => {
 
-    if ($scope.client_name == null || $scope.client_email == null || $scope.client_date == null || $scope.client_service == null) {
+    if ($scope.client_name == null || $scope.client_email == null || $scope.client_service == null) {
       swal({
         title: "Ooops, fill all fields first.",
         icon: 'warning'
       });
     }
     else {
-      var new_date = new Date($scope.client_date);
-      var date = new_date.getDate();
-      if (date < 10) { var nu_date = ("0" + new_date.getDate()).slice(-2); } else { var nu_date = new_date.getDate(); }
-      var month = new_date.getMonth() + 1; // Since getMonth() returns month from 0-11 not 1-12
-      if (month < 10) { var new_month = ("0" + (new_date.getMonth() + 1)).slice(-2); } else { var new_month = new_date.getMonth() + 1; }
-      var year = new_date.getFullYear();
-      var changed_date = nu_date + "-" + new_month + "-" + year;
-      // console.log(changed_date)
 
       $http({
         method: 'POST',
@@ -138,7 +121,6 @@ app.controller('aboutCtlr', function ($scope, $http, $window) {
           'name': $scope.client_name,
           'email': $scope.client_email,
           'phone': $scope.client_phone,
-          'date': changed_date,
           'service': $scope.client_service
         }
       }).then((response) => {
@@ -185,21 +167,13 @@ app.controller('contactCtlr', function ($scope, $http, $window) {
 
   $scope.bookAppointment = () => {
 
-    if ($scope.client_name == null || $scope.client_email == null || $scope.client_date == null || $scope.client_service == null) {
+    if ($scope.client_name == null || $scope.client_email == null || $scope.client_service == null) {
       swal({
         title: "Ooops, fill all fields first.",
         icon: 'warning'
       });
     }
     else {
-      var new_date = new Date($scope.client_date);
-      var date = new_date.getDate();
-      if (date < 10) { var nu_date = ("0" + new_date.getDate()).slice(-2); } else { var nu_date = new_date.getDate(); }
-      var month = new_date.getMonth() + 1; // Since getMonth() returns month from 0-11 not 1-12
-      if (month < 10) { var new_month = ("0" + (new_date.getMonth() + 1)).slice(-2); } else { var new_month = new_date.getMonth() + 1; }
-      var year = new_date.getFullYear();
-      var changed_date = nu_date + "-" + new_month + "-" + year;
-      // console.log(changed_date)
 
       $http({
         method: 'POST',
@@ -208,7 +182,6 @@ app.controller('contactCtlr', function ($scope, $http, $window) {
           'name': $scope.client_name,
           'email': $scope.client_email,
           'phone': $scope.client_phone,
-          'date': changed_date,
           'service': $scope.client_service
         }
       }).then((response) => {
@@ -301,21 +274,13 @@ app.controller('faqCtlr', function ($scope, $http, $window) {
 
   $scope.bookAppointment = () => {
 
-    if ($scope.client_name == null || $scope.client_email == null || $scope.client_date == null || $scope.client_service == null) {
+    if ($scope.client_name == null || $scope.client_email == null || $scope.client_service == null) {
       swal({
         title: "Ooops, fill all fields first.",
         icon: 'warning'
       });
     }
     else {
-      var new_date = new Date($scope.client_date);
-      var date = new_date.getDate();
-      if (date < 10) { var nu_date = ("0" + new_date.getDate()).slice(-2); } else { var nu_date = new_date.getDate(); }
-      var month = new_date.getMonth() + 1; // Since getMonth() returns month from 0-11 not 1-12
-      if (month < 10) { var new_month = ("0" + (new_date.getMonth() + 1)).slice(-2); } else { var new_month = new_date.getMonth() + 1; }
-      var year = new_date.getFullYear();
-      var changed_date = nu_date + "-" + new_month + "-" + year;
-      // console.log(changed_date)
 
       $http({
         method: 'POST',
@@ -324,7 +289,6 @@ app.controller('faqCtlr', function ($scope, $http, $window) {
           'name': $scope.client_name,
           'email': $scope.client_email,
           'phone': $scope.client_phone,
-          'date': changed_date,
           'service': $scope.client_service
         }
       }).then((response) => {
@@ -407,21 +371,13 @@ app.controller('serviceCtlr', function ($scope, $http, $window) {
 
   $scope.bookAppointment = () => {
 
-    if ($scope.client_name == null || $scope.client_email == null || $scope.client_date == null || $scope.client_service == null) {
+    if ($scope.client_name == null || $scope.client_email == null || $scope.client_service == null) {
       swal({
         title: "Ooops, fill all fields first.",
         icon: 'warning'
       });
     }
     else {
-      var new_date = new Date($scope.client_date);
-      var date = new_date.getDate();
-      if (date < 10) { var nu_date = ("0" + new_date.getDate()).slice(-2); } else { var nu_date = new_date.getDate(); }
-      var month = new_date.getMonth() + 1; // Since getMonth() returns month from 0-11 not 1-12
-      if (month < 10) { var new_month = ("0" + (new_date.getMonth() + 1)).slice(-2); } else { var new_month = new_date.getMonth() + 1; }
-      var year = new_date.getFullYear();
-      var changed_date = nu_date + "-" + new_month + "-" + year;
-      // console.log(changed_date)
 
       $http({
         method: 'POST',
@@ -430,7 +386,6 @@ app.controller('serviceCtlr', function ($scope, $http, $window) {
           'name': $scope.client_name,
           'email': $scope.client_email,
           'phone': $scope.client_phone,
-          'date': changed_date,
           'service': $scope.client_service
         }
       }).then((response) => {
@@ -481,8 +436,8 @@ app.controller('adminCtlr', function ($scope, $http, $window) {
   }
   $scope.getuser();
 
-  
-  $scope.appointment = true; $scope.message = false; $scope.settings = false;  
+
+  $scope.appointment = true; $scope.message = false; $scope.settings = false;
 
   $scope.getLinks = (link) => {
     if (link == "link1") {
@@ -509,7 +464,7 @@ app.controller('adminCtlr', function ($scope, $http, $window) {
         $scope.some_appoint = false;
         $scope.no_appoint = true;
       } else {
-        // console.log(response.data)
+        console.log(response.data)
         $scope.some_appoint = true;
         $scope.no_appoint = false;
         $scope.appointments = response.data;
@@ -528,6 +483,7 @@ app.controller('adminCtlr', function ($scope, $http, $window) {
       $scope.appoint_phone = appointResult.phone;
       $scope.appoint_date = appointResult.date;
       $scope.appoint_service = appointResult.service;
+      $scope.appoint_status = appointResult.status;
       $scope.appoint_created_at = appointResult.created_at;
       $scope.appoint_id = aid;
       $('#appoint_details').modal('show');
@@ -581,7 +537,7 @@ app.controller('adminCtlr', function ($scope, $http, $window) {
         $scope.empty_msg = "No messages yet";
         $scope.some_mesg = false;
         $scope.no_mesg = true;
-      } else{ 
+      } else {
         // console.log(response.data)       
         $scope.some_mesg = true;
         $scope.no_mesg = false;
@@ -699,21 +655,13 @@ app.controller('adminCtlr', function ($scope, $http, $window) {
 
   $scope.bookAppointment = () => {
 
-    if ($scope.client_name == null || $scope.client_email == null || $scope.client_date == null || $scope.client_service == null) {
+    if ($scope.client_name == null || $scope.client_email == null || $scope.client_service == null) {
       swal({
         title: "Ooops, fill all fields first.",
         icon: 'warning'
       });
     }
     else {
-      var new_date = new Date($scope.client_date);
-      var date = new_date.getDate();
-      if (date < 10) { var nu_date = ("0" + new_date.getDate()).slice(-2); } else { var nu_date = new_date.getDate(); }
-      var month = new_date.getMonth() + 1; // Since getMonth() returns month from 0-11 not 1-12
-      if (month < 10) { var new_month = ("0" + (new_date.getMonth() + 1)).slice(-2); } else { var new_month = new_date.getMonth() + 1; }
-      var year = new_date.getFullYear();
-      var changed_date = nu_date + "-" + new_month + "-" + year;
-      // console.log(changed_date)
 
       $http({
         method: 'POST',
@@ -722,7 +670,6 @@ app.controller('adminCtlr', function ($scope, $http, $window) {
           'name': $scope.client_name,
           'email': $scope.client_email,
           'phone': $scope.client_phone,
-          'date': changed_date,
           'service': $scope.client_service
         }
       }).then((response) => {
@@ -751,6 +698,76 @@ app.controller('adminCtlr', function ($scope, $http, $window) {
       });
     }
 
+  }
+
+  $scope.acceptAppointment = (apmt_id) => {
+    if (confirm('Do you really want to accept it?')) {
+      $http({
+        method: 'POST',
+        url: 'api/acceptAppointment.php',
+        data: {
+          id: apmt_id
+        }
+      }).then((res) => {
+        if (res.data == 'done') {
+          swal({
+            title: 'Status changed.',
+            icon: 'success',
+            buttons: true
+          }).then((result) => {
+            if (result) {
+              $scope.showAppointment(apmt_id);
+            } else {
+              $scope.showAppointment(apmt_id);
+            }
+          });
+        } else {
+          swla({
+            title: res.data
+          });
+        }
+      });
+    }
+  }
+
+  $scope.rejectAppointment = (apmt_id) => {
+    // if (confirm('Do you really want to reject it?')) {
+    //   const { value: reason } = await swal({
+    //     title: 'Enter a reason',
+    //     input: 'text',
+    //     inputLabel: 'Reason',
+    //     inputPlaceholder: 'Enter your the reason'
+    //   })      
+      // // if (reason) {
+        
+      // // }      
+      $http({
+        method: 'POST',
+        url: 'api/rejectAppointment.php',
+        data: {
+          id: apmt_id,
+          reason : reason
+        }
+      }).then((res) => {
+        if (res.data == 'done') {
+          swal({
+            title: 'Status changed.',
+            icon: 'success',
+            buttons: true
+          }).then((result) => {
+            if (result) {
+              $scope.showAppointment(apmt_id);
+            } else {
+              $scope.showAppointment(apmt_id);
+            }
+          });
+        } else {
+          swla({
+            title: res.data
+          });
+        }
+      });
+    }
   }
 
 });

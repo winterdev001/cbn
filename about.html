@@ -97,7 +97,8 @@
                             </ul>
                         </nav>
                         <div class="header__btn">
-                            <a href="#" data-toggle= "modal" data-target="#book_appointment" class="primary-btn">Appointment</a>
+                            <a href="#" data-toggle="modal" data-target="#book_appointment"
+                                class="primary-btn">Appointment</a>
                         </div>
                     </div>
                 </div>
@@ -455,7 +456,7 @@
                     <div class="footer__widget">
                         <h5>Company</h5>
                         <ul>
-                            <li><a href="#" data-toggle= "modal" data-target="#book_appointment">Appointment</a></li>
+                            <li><a href="#" data-toggle="modal" data-target="#book_appointment">Appointment</a></li>
                             <li><a href="about.html">About Us</a></li>
                             <li><a href="services.html">Services</a></li>
                             <li><a href="contact.html">Contact</a></li>
@@ -530,17 +531,17 @@
                             <span>REQUEST FOR YOUR</span>
                             <h2>Consultation</h2>
                         </div>
-                        <form  name="form">
+                        <form name="form">
                             <input type="text" placeholder="Name" ng-model="client_name">
-                            <input type="text" placeholder="Email" ng-model="client_email" name="email"  ng-pattern="/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/">
-                            <div class="text-danger" ng-if="form.email.$dirty&&form.email.$error.pattern">*Enter correct Email Address!</div>
-                            <input type="tel" placeholder="Phone" ng-model="client_phone" name="phone" ng-pattern="/^[0-9]{1,10}$/">
-                            <div class="text-danger" ng-if="form.phone.$dirty&&form.phone.$error.pattern">*Enter correct  phone number!</div>
-                            <div class="datepicker__item">
-                                <input type="date" placeholder="Date" ng-model="client_date">
-                                <!-- <i class="fa fa-calendar"></i> -->
-                            </div>
-                            <select class="form-control mb-3" ng-model="client_service" >
+                            <input type="text" placeholder="Email" ng-model="client_email" name="email"
+                                ng-pattern="/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/">
+                            <div class="text-danger" ng-if="form.email.$dirty&&form.email.$error.pattern">*Enter correct
+                                Email Address!</div>
+                            <input type="tel" placeholder="Phone" ng-model="client_phone" name="phone"
+                                ng-pattern="/^[0-9]{1,10}$/">
+                            <div class="text-danger" ng-if="form.phone.$dirty&&form.phone.$error.pattern">*Enter correct
+                                phone number!</div>
+                            <select class="form-control mb-3" ng-model="client_service">
                                 <option value="">Type of service</option>
                                 <option value="General Services">General Services</option>
                                 <option value="Obstetric care">Obstetric care</option>
@@ -550,7 +551,7 @@
                                 <option value="Gynecologique surgery">Gynecologique surgery</option>
                                 <option value="Neonatology">Neonatology</option>
                             </select>
-                           
+
                             <button type="submit" class="site-btn" ng-click="bookAppointment()">Book
                                 Appoitment</button>
                         </form>

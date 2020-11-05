@@ -4,12 +4,12 @@ $data=json_decode($getdata);
 $name=$data->name;
 $email=$data->email;
 $phone=$data->phone;
-$date=$data->date;
 $service=$data->service;
+$status = "waiting";
 
 $con=mysqli_connect('localhost','root','','cbn');
 
-$q="insert into appointment(name,email,phone,date,service) values('".$name."','".$email."','".$phone."','".$date."','".$service."')";
+$q="insert into appointment(name,email,phone,service,status) values('".$name."','".$email."','".$phone."','".$service."','".$status."')";
 $res = mysqli_query($con,$q);
 
 if($res){

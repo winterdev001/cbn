@@ -454,11 +454,7 @@
                 Address!</div>
               <input type="tel" placeholder="Phone" ng-model="client_phone" name="phone" ng-pattern="/^[0-9]{1,10}$/">
               <div class="text-danger" ng-if="form.phone.$dirty&&form.phone.$error.pattern">*Enter correct phone number!
-              </div>
-              <div class="datepicker__item">
-                <input type="date" placeholder="Date" ng-model="client_date">
-                <!-- <i class="fa fa-calendar"></i> -->
-              </div>
+              </div>              
               <select class="form-control mb-3" ng-model="client_service">
                 <option value="">Type of service</option>
                 <option value="General Services">General Services</option>
