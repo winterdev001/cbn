@@ -2881,3 +2881,13 @@ ol {
 .badge-default {
 	background-color: #66666654;
 }
+
+.accepted_a { 
+	/* visibility: hidden !important; */
+	display: none;
+}
+
+.rejected_a {
+	/* visibility: hidden !important; */
+	display: none;
+}

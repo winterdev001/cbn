@@ -547,6 +547,27 @@ app.controller('adminCtlr', function ($scope, $http, $window) {
   }
   $scope.getMessages();
 
+  $scope.checkMessage = (mid) => {
+    $http({
+      method: 'POST',
+      url: 'api/checkMessage.php',
+      data: {
+        id: mid
+      }
+    }).then((res) => {
+      // console.log(res.data);
+      var msgResult = res.data[0];
+      $scope.msg_name = msgResult.name;
+      $scope.msg_email = msgResult.email
+      $scope.msg_message = msgResult.message;
+      $scope.msg_status = msgResult.status;
+      if($scope.msg_status == 1) { $scope.msg_status_after = "Checked"; }
+      $scope.msg_created_at = msgResult.created_at;
+      $scope.msg_id = mid;
+      $('#message_details').modal('show');
+    });
+  }
+
   $scope.userInfo = () => {
     $http.get('api/userInfo.php').then((res) => {
       $scope.username = res.data[0].username;
@@ -701,7 +722,7 @@ app.controller('adminCtlr', function ($scope, $http, $window) {
   }
 
   $scope.acceptAppointment = (apmt_id) => {
-    if (confirm('Do you really want to accept it?')) {
+    if (confirm('Do you really want to approve it?')) {
       $http({
         method: 'POST',
         url: 'api/acceptAppointment.php',
@@ -711,18 +732,20 @@ app.controller('adminCtlr', function ($scope, $http, $window) {
       }).then((res) => {
         if (res.data == 'done') {
           swal({
-            title: 'Status changed.',
+            title: 'Appointment approved!.',
             icon: 'success',
             buttons: true
           }).then((result) => {
             if (result) {
               $scope.showAppointment(apmt_id);
+              $scope.getAppointments();
             } else {
               $scope.showAppointment(apmt_id);
+              $scope.getAppointments();
             }
           });
         } else {
-          swla({
+          swal({
             title: res.data
           });
         }
@@ -730,45 +753,47 @@ app.controller('adminCtlr', function ($scope, $http, $window) {
     }
   }
 
-  $scope.rejectAppointment = (apmt_id) => {
-    // if (confirm('Do you really want to reject it?')) {
-    //   const { value: reason } = await swal({
-    //     title: 'Enter a reason',
-    //     input: 'text',
-    //     inputLabel: 'Reason',
-    //     inputPlaceholder: 'Enter your the reason'
-    //   })      
-      // // if (reason) {
-        
-      // // }      
-      $http({
-        method: 'POST',
-        url: 'api/rejectAppointment.php',
-        data: {
-          id: apmt_id,
-          reason : reason
-        }
-      }).then((res) => {
-        if (res.data == 'done') {
-          swal({
-            title: 'Status changed.',
-            icon: 'success',
-            buttons: true
-          }).then((result) => {
-            if (result) {
-              $scope.showAppointment(apmt_id);
-            } else {
-              $scope.showAppointment(apmt_id);
-            }
-          });
-        } else {
-          swla({
-            title: res.data
-          });
-        }
-      });
-    }
-  }
+  // $scope.rejectAppointment = async (apmt_id) => {
+  //   if (confirm('Do you really want to reject it?')) {
+  //     const { value: reason } = await swal({
+  //       input: 'text',
+  //       inputLabel: 'Reason',
+  //       inputPlaceholder: 'Type your reason here...',
+  //       inputAttributes: {
+  //         'aria-label': 'Type your reason here'
+  //       },
+  //       showCancelButton: true
+  //     });
+  //     if (reason) {
+  //       $http({
+  //         method: 'POST',
+  //         url: 'api/rejectAppointment.php',
+  //         data: {
+  //           id: apmt_id,
+  //           reason: reason
+  //         }
+  //       }).then((res) => {
+  //         if (res.data == 'done') {
+  //           swal({
+  //             title: 'Status changed.',
+  //             icon: 'success',
+  //             buttons: true
+  //           }).then((result) => {
+  //             if (result) {
+  //               $scope.showAppointment(apmt_id);
+  //             } else {
+  //               $scope.showAppointment(apmt_id);
+  //             }
+  //           });
+  //         } else {
+  //           swal({
+  //             title: res.data
+  //           });
+  //         }
+  //       });
+  //     }
+  //   }
+  // }
 
 });
 

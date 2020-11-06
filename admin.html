@@ -100,7 +100,8 @@
                             </ul>
                         </nav>
                         <div class="header__btn">
-                            <a href="#" data-toggle= "modal" data-target="#book_appointment" class="primary-btn">Appointment</a>
+                            <a href="#" data-toggle="modal" data-target="#book_appointment"
+                                class="primary-btn">Appointment</a>
                         </div>
                     </div>
                 </div>
@@ -200,14 +201,18 @@
                                             <th scope="col">Name</th>
                                             <th scope="col">Phone</th>
                                             <th scope="col">Service</th>
+                                            <th scope="col">Status </th>
                                             <th></th>
                                         </tr>
                                     </thead>
-                                    <tbody>                                        
+                                    <tbody>
                                         <tr dir-paginate="appoint in appointments|filter:query|itemsPerPage:5">
                                             <th scope="row">{{appoint.name}}</th>
                                             <td>0{{appoint.phone}}</td>
                                             <td>{{appoint.service}}</td>
+                                            <td> <span
+                                                    ng-class="{'badge badge-info' :appoint.status=='waiting','badge badge-success' :appoint.status=='approved'}">{{appoint.status}}</span>
+                                            </td>
                                             <td><button class="btn btn-default text-light"
                                                     ng-click="showAppointment(appoint.id)"><i
                                                         class="fa fa-external-link"></i></button></td>
@@ -244,18 +249,17 @@
                                             <th></th>
                                         </tr>
                                     </thead>
-                                    <tbody>                                        
+                                    <tbody>
                                         <tr ng-repeat="msg in messages">
                                             <th scope="row">{{msg.name}}</th>
                                             <td>{{msg.email}}</td>
-                                            <td>{{msg.message}}</td>
+                                            <td>{{msg.message | limitTo :20}}...</td>
                                             <td>{{msg.created_at}}</td>
                                             <td><button class="btn btn-warning text-light"
-                                                    ng-click="showMessage(msg.id)"><i
-                                                        class="fa fa-external-link"></i></button></td>
+                                                    ng-click="checkMessage(msg.id)"><span ng-if="msg.status == 1">Checked</span> <span ng-if="msg.status == 0">Check</span></button></td>
                                         </tr>
                                     </tbody>
-                                </table>                                
+                                </table>
                             </div>
                             <div ng-show="no_mesg" class="text-center">
                                 <div class="alert alert-dark" role="alert">
@@ -332,7 +336,7 @@
                     <div class="footer__widget">
                         <h5>Company</h5>
                         <ul>
-                            <li><a href="#" data-toggle= "modal" data-target="#book_appointment">Appointment</a></li>
+                            <li><a href="#" data-toggle="modal" data-target="#book_appointment">Appointment</a></li>
                             <li><a href="about.html">About Us</a></li>
                             <li><a href="services.html">Services</a></li>
                             <li><a href="contact.html">Contact</a></li>
@@ -433,8 +437,9 @@
                     </button>
                 </div>
                 <div class="modal-body">
-                    <p class="modal-text">Status: 
-                        <span ng-class="{'badge badge-info' :appoint_status=='waiting','badge badge-success' :appoint_status=='accepted','badge badge-danger' :appoint_status=='rejected'}">
+                    <p class="modal-text">Status:
+                        <span
+                            ng-class="{'badge badge-info' :appoint_status=='waiting','badge badge-success' :appoint_status=='approved'}">
                             <strong>{{appoint_status}}</strong></span></p>
                     <p class="modal-text">Client Name: <strong>{{appoint_name}}</strong></p>
                     <p class="modal-text">Client Email: <strong>{{appoint_email}}</strong></p>
@@ -443,10 +448,41 @@
                     <p class="modal-text">Date Created : <strong class="text-muted">{{appoint_created_at}}</strong></p>
                 </div>
                 <div class="modal-footer">
-                    <button class="btn btn-success" ng-click="acceptAppointment(appoint_id)">Accept</button>
-                    <button class="btn btn-warning" ng-click="rejectAppointment(appoint_id)">reject</button>
+                    <span ng-class="{'accepted_a':appoint_status == 'approved'}"><button class="btn btn-success"
+                            ng-click="acceptAppointment(appoint_id)">Approve</button></span>
+                    <!-- <span ng-class="{'rejected_a':appoint_status == 'rejected'}"><button class="btn btn-warning" ng-click="rejectAppointment(appoint_id)">reject</button></span> -->
                     <button type="button" class="btn btn-danger"
                         ng-click="deleteAppointment(appoint_id)">Delete</button>
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <!-- <button type="button" class="btn btn-primary">Save changes</button> -->
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- show message -->
+    <div class="modal fade" id="message_details" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-md">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">{{msg_name}}'s Message</h5>
+                    <!-- <span class="badge badge-warning">{{appoint_status}}</span> -->
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <p class="modal-text">Status:
+                        <span
+                            ng-class="{'badge badge-success' :msg_status== 1}">
+                            <strong>{{msg_status_after}}</strong></span></p>
+                    <p class="modal-text">Client Name: <strong>{{msg_name}}</strong></p>
+                    <p class="modal-text">Client Email: <strong>{{msg_email}}</strong></p>
+                    <p class="modal-text">Message : <strong>{{msg_message}}</strong></p>
+                    <p class="modal-text">Date Created : <strong class="text-muted">{{msg_created_at}}</strong></p>
+                </div>
+                <div class="modal-footer">                   
+                    <button type="button" class="btn btn-danger"
+                        ng-click="deleteMessage(msg_id)">Delete</button>
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                     <!-- <button type="button" class="btn btn-primary">Save changes</button> -->
                 </div>
@@ -513,7 +549,8 @@
     <script src="js/custom.js"></script>
     <!-- sweetalert -->
     <script src="js/sweetalert1.js"></script>
-    <!-- Js Plugins -->    
+    <!-- <script src="js/sweetalert2.js"></script> -->
+    <!-- Js Plugins -->
     <script src="js/jquery-3.3.1.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
     <script src="js/jquery.magnific-popup.min.js"></script>
