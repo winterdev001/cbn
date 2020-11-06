@@ -2891,3 +2891,8 @@ ol {
 	/* visibility: hidden !important; */
 	display: none;
 }
+
+.msg_border {
+	border : 2px solid #13A2B7 !important;
+	border-radius: 4px;
+}

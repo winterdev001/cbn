@@ -547,7 +547,7 @@ app.controller('adminCtlr', function ($scope, $http, $window) {
   }
   $scope.getMessages();
 
-  $scope.checkMessage = (mid) => {
+  $scope.checkMessage = (mid) => {    
     $http({
       method: 'POST',
       url: 'api/checkMessage.php',
@@ -561,11 +561,58 @@ app.controller('adminCtlr', function ($scope, $http, $window) {
       $scope.msg_email = msgResult.email
       $scope.msg_message = msgResult.message;
       $scope.msg_status = msgResult.status;
-      if($scope.msg_status == 1) { $scope.msg_status_after = "Checked"; }
+      if ($scope.msg_status == 1) { $scope.msg_status_after = "Checked"; }
       $scope.msg_created_at = msgResult.created_at;
       $scope.msg_id = mid;
       $('#message_details').modal('show');
     });
+  }
+
+  $scope.refreshMessage = () =>{
+    $scope.getMessages();
+  }
+
+  $scope.deleteMessage = (mid) => {    
+    if (mid) {
+      swal({
+        title: 'Are you sure you want to delete this message?',
+        icon: 'warning',
+        buttons: true
+      }).then((res) => {
+        if (res) {
+          // console.log('yes')
+          $http({
+            method: 'POST',
+            url: 'api/deleteMessage.php',
+            data: {
+              id: mid
+            }
+          }).then((response) => {
+            if (response.data == 'done') {
+              swal({
+                title: 'Message deleted successfully!',
+                icon: 'success',
+                buttons: true
+              }).then((result) => {
+                if (result) {
+                  // $window.location.reload();
+                  $scope.getMessages();
+                  $('#message_details').modal('hide')
+                } else {
+                  // $window.location.reload();
+                  $scope.getMessages();
+                  $('#message_details').modal('hide')
+                }
+              });
+            } else {
+              swal({
+                title: response.data
+              });
+            }
+          });
+        }
+      });
+    }
   }
 
   $scope.userInfo = () => {

@@ -1,6 +1,6 @@
 <?php
     $con=mysqli_connect('localhost','root','','cbn');
-    $r="select * from message ";
+    $r="select * from message order by status asc";
     $q=mysqli_query($con,$r);
     if(mysqli_num_rows($q) > 0){
       header("Content-Type: application/json");  

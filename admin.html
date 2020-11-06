@@ -27,7 +27,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 
-<body ng-app="myApp" ng-controller="adminCtlr">
+<body ng-app="myApp" ng-controller="adminCtlr" ng-click="refreshMessage()">
     <!-- Page Preloder -->
     <!-- <div id="preloder">
         <div class="loader"></div>
@@ -466,7 +466,7 @@
                 <div class="modal-header">
                     <h5 class="modal-title" id="exampleModalLabel">{{msg_name}}'s Message</h5>
                     <!-- <span class="badge badge-warning">{{appoint_status}}</span> -->
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close" ng-click="refreshMessage()">
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
@@ -477,13 +477,15 @@
                             <strong>{{msg_status_after}}</strong></span></p>
                     <p class="modal-text">Client Name: <strong>{{msg_name}}</strong></p>
                     <p class="modal-text">Client Email: <strong>{{msg_email}}</strong></p>
-                    <p class="modal-text">Message : <strong>{{msg_message}}</strong></p>
+                    <p class="modal-text">Message : <p class="msg_border p-2" >
+                        <strong >{{msg_message}}</strong>
+                    </p></p>
                     <p class="modal-text">Date Created : <strong class="text-muted">{{msg_created_at}}</strong></p>
                 </div>
                 <div class="modal-footer">                   
                     <button type="button" class="btn btn-danger"
                         ng-click="deleteMessage(msg_id)">Delete</button>
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal" ng-click="refreshMessage()">Close</button>
                     <!-- <button type="button" class="btn btn-primary">Save changes</button> -->
                 </div>
             </div>
