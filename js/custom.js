@@ -89,6 +89,20 @@ app.controller('indexCtlr', function ($scope, $http, $window) {
     }
 
   }
+
+  $scope.getGallery = () => {
+    $http.get('api/getGallery.php').then((response) => {
+      if (response.data == 'empty') {
+        swal({
+          title: "No photos yet"
+        });
+      } else {
+        console.log(response.data)
+        $scope.allImages = response.data;
+      }
+    });
+  }
+  $scope.getGallery();
 });
 
 // about page
@@ -256,6 +270,81 @@ app.controller('contactCtlr', function ($scope, $http, $window) {
     }
 
   }
+
+});
+// gallery page
+app.controller('galleryCtlr', function ($scope, $http, $window) {
+  $scope.authenticated = () => {
+    var auth = localStorage.getItem('auth');
+    if (auth == null || auth == 0) {
+      $scope.admin_link = false;
+    } else {
+      $scope.admin_link = true;
+    }
+  }
+
+  $scope.authenticated();
+
+  $scope.bookAppointment = () => {
+
+    if ($scope.client_name == null || $scope.client_email == null || $scope.client_service == null) {
+      swal({
+        title: "Ooops, fill all fields first.",
+        icon: 'warning'
+      });
+    }
+    else {
+
+      $http({
+        method: 'POST',
+        url: 'api/bookAppointment.php',
+        data: {
+          'name': $scope.client_name,
+          'email': $scope.client_email,
+          'phone': $scope.client_phone,
+          'service': $scope.client_service
+        }
+      }).then((response) => {
+        console.log(response.data);
+        if (response.data == "done") {
+          console.log(response.data)
+          swal({
+            title: 'Data sent successfully! ',
+            text: 'Other details to be communicated.',
+            icon: 'success',
+            buttons: true
+          })
+            .then((result) => {
+              if (result) {
+                $window.location.reload();
+              } else {
+                $window.location.reload();
+              }
+            });
+          // console.log(reponse.data)
+        } else {
+          swal({
+            title: response.data
+          });
+        }
+      });
+    }
+
+  }
+
+  $scope.getGallery = () => {
+    $http.get('api/getGallery.php').then((response) => {
+      if (response.data == 'empty') {
+        swal({
+          title: "No photos yet"
+        });
+      } else {
+        console.log(response.data)
+        $scope.galleryImages = response.data;
+      }
+    });
+  }
+  $scope.getGallery();
 
 });
 
@@ -437,21 +526,25 @@ app.controller('adminCtlr', function ($scope, $http, $window) {
   $scope.getuser();
 
 
-  $scope.appointment = true; $scope.message = false; $scope.settings = false;
+  $scope.appointment = true; $scope.message = false; $scope.gallery = false; $scope.settings = false;
 
   $scope.getLinks = (link) => {
     if (link == "link1") {
-      $scope.appointment = true; $scope.message = false; $scope.settings = false;
+      $scope.appointment = true; $scope.message = false; $scope.gallery = false; $scope.settings = false;
       $('.card-heading').removeClass('active');
       $('.link1').addClass('active');
     } else if (link == "link2") {
-      $scope.appointment = false; $scope.message = true; $scope.settings = false;
+      $scope.appointment = false; $scope.message = true; $scope.gallery = false; $scope.settings = false;
       $('.card-heading').removeClass('active');
       $('.link2').addClass('active');
     } else if (link == "link3") {
-      $scope.appointment = false; $scope.message = false; $scope.settings = true;
+      $scope.appointment = false; $scope.message = false; $scope.gallery = true; $scope.settings = false;
       $('.card-heading').removeClass('active');
       $('.link3').addClass('active');
+    } else if (link == "link4") {
+      $scope.appointment = false; $scope.message = false; $scope.gallery = false; $scope.settings = true;
+      $('.card-heading').removeClass('active');
+      $('.link4').addClass('active');
     }
   }
 
@@ -464,7 +557,7 @@ app.controller('adminCtlr', function ($scope, $http, $window) {
         $scope.some_appoint = false;
         $scope.no_appoint = true;
       } else {
-        console.log(response.data)
+        // console.log(response.data)
         $scope.some_appoint = true;
         $scope.no_appoint = false;
         $scope.appointments = response.data;
@@ -547,7 +640,7 @@ app.controller('adminCtlr', function ($scope, $http, $window) {
   }
   $scope.getMessages();
 
-  $scope.checkMessage = (mid) => {    
+  $scope.checkMessage = (mid) => {
     $http({
       method: 'POST',
       url: 'api/checkMessage.php',
@@ -568,11 +661,11 @@ app.controller('adminCtlr', function ($scope, $http, $window) {
     });
   }
 
-  $scope.refreshMessage = () =>{
+  $scope.refreshMessage = () => {
     $scope.getMessages();
   }
 
-  $scope.deleteMessage = (mid) => {    
+  $scope.deleteMessage = (mid) => {
     if (mid) {
       swal({
         title: 'Are you sure you want to delete this message?',
@@ -612,6 +705,120 @@ app.controller('adminCtlr', function ($scope, $http, $window) {
           });
         }
       });
+    }
+  }
+
+  $scope.getGallery = () => {
+    $http.get('api/getGallery.php').then((response) => {
+      if (response.data == 'empty') {
+        swal({
+          title: "No photos yet"
+        });
+      } else {
+        console.log(response.data)
+        $scope.allImages = response.data;
+      }
+    });
+  }
+  $scope.getGallery();
+
+  $scope.getImage = (event) => {
+    event.preventDefault();
+    if (document.getElementById('img').files.length == 0 || $scope.image_title == null || $scope.image_caption == null) {
+      swal({
+        title: "Oops, Fill all fields first.",
+        icon: 'warning'
+      });
+    } else {
+      var form_data = new FormData();
+      angular.forEach($scope.files, function (file) {
+        form_data.append('file', file);
+        form_data.append('title', $scope.image_title);
+        form_data.append('caption', $scope.image_caption);
+      });
+      $http.post('api/getImages.php', form_data,
+        {
+          transformRequest: angular.identity,
+          headers: { 'Content-Type': undefined, 'Process-Data': false }
+        }).then(function (response) {
+          // console.log(response);
+          // if (response == 'success') {
+          //   swal({
+          //     title: "Image uploaded successfully!",
+          //     icon: 'success',
+          //     buttons: true
+          //   }).then((result) => {
+          //     if (result) {
+          //       $scope.getGallery();
+          //     } else {
+          //       $scope.getGallery();
+          //     }
+          //   });
+          // } else {
+          //   swal({
+          //     title: response,
+          //     icon: 'warning'
+          //   });
+          // }
+          $scope.appointment = false; $scope.message = false; $scope.gallery = true; $scope.settings = false;
+          $('.card-heading').removeClass('active');
+          $('.link3').addClass('active');
+        });
+    }
+  }
+
+  $scope.showImage = (img_id) => {
+    $http.get('api/getGallery.php').then((res) => {
+      var gallery = res.data;
+      const galResult = gallery.find(({ id }) => id === img_id);
+      // console.log(result.id)
+      $scope.img_name = galResult.image;
+      $scope.img_title = galResult.title
+      $scope.img_caption = galResult.caption;
+      $scope.img_created_at = galResult.created_at;
+      $scope.img_id = img_id;
+      $('#show_image').modal('show');
+    });
+  }
+
+  $scope.editImage = () => {
+    $('#edit_image').modal('show');
+  }
+
+  // $scope.getAlert = () =>{
+  //   setTimeout(function(){ alert("Success"); }, 3000);
+  // }
+
+  $scope.updateImage = (imgId) => {
+    if (document.getElementById('img_up').files.length == 0 || $scope.img_title == null || $scope.img_caption == null) {
+      swal({
+        title: "Oops, Fill all fields first.",
+        icon: 'warning'
+      });
+    } else {
+      //  console.log('done')
+      setTimeout(function () { alert("Success"); }, 1000);
+      var form_data = new FormData();
+      angular.forEach($scope.files, function (file) {
+        form_data.append('file', file);
+        form_data.append('title', $scope.img_title);
+        form_data.append('caption', $scope.img_caption);
+        form_data.append('id', imgId);
+      });
+      $http.post('api/updateImage.php', form_data,
+        {
+          transformRequest: angular.identity,
+          headers: { 'Content-Type': undefined, 'Process-Data': false }
+        }).then(function (response) {
+          // console.log(response)
+          // $window.onload = function(e) {
+          //   alert('Image Uploaded');
+          // }
+          // $scope.getAlert();
+          if (response.data == 'success') {
+            alert(response.data);
+          }
+        });
     }
   }
 
@@ -715,7 +922,7 @@ app.controller('adminCtlr', function ($scope, $http, $window) {
   // navigation
   $scope.authenticated = () => {
     var auth = localStorage.getItem(auth);
-    console.log(auth)
+    // console.log(auth)
     // if()
   }
 
@@ -868,4 +1075,3 @@ app.directive('onError', function () {
     }
   }
 })
-

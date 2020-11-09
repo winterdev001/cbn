@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="eng">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="developer" content="bahatipatrick05@gmail.com">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>CBN</title>
+
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&amp;display=swap"
+        rel="stylesheet">
+        <!-- favicon -->
+    <link rel="icon" href="img/logo/cbn-no.png">
+
+    <!-- Css Styles -->
+    <link rel="stylesheet" href="css/bootstrap.min.css" type="text/css">
+    <link rel="stylesheet" href="css/font-awesome.min.css" type="text/css">
+    <link rel="stylesheet" href="css/flaticon.css" type="text/css">
+    <link rel="stylesheet" href="css/nice-select.css" type="text/css">
+    <link rel="stylesheet" href="css/jquery-ui.min.css" type="text/css">
+    <link rel="stylesheet" href="css/magnific-popup.css" type="text/css">
+    <link rel="stylesheet" href="css/owl.carousel.min.css" type="text/css">
+    <link rel="stylesheet" href="css/slicknav.min.css" type="text/css">
+    <link rel="stylesheet" href="css/style.css" type="text/css">
+    <link rel="stylesheet" href="css/gallery.css">
+    <link rel="stylesheet" href="css/fancybox.css">
+</head>
+
+<body ng-app="myApp" ng-controller="galleryCtlr">
+    <!-- Page Preloder -->
+    <!-- <div id="preloder">
+        <div class="loader"></div>
+    </div> -->
+
+    <!-- Offcanvas Menu Begin -->
+    <div class="offcanvas-menu-overlay"></div>
+    <div class="offcanvas-menu-wrapper">
+        <div class="offcanvas__logo">
+            <a href="index.html"><img src="img/logo/cbn.png" width="70" alt=""></a>
+        </div>
+        <div id="mobile-menu-wrap"></div>
+        <div class="offcanvas__btn">
+            <a href="#make_appointment" class="primary-btn">Appointment</a>
+        </div>
+        <ul class="offcanvas__widget">
+            <li><i class="fa fa-phone"></i> 1-677-124-44227</li>
+            <li><i class="fa fa-map-marker"></i> Los Angeles Gournadi, 1230 Bariasl</li>
+            <li><i class="fa fa-clock-o"></i> Mon to Sat 9:00am to 18:00pm</li>
+        </ul>
+        <div class="offcanvas__social">
+            <a href="#"><i class="fa fa-facebook"></i></a>
+            <a href="#"><i class="fa fa-twitter"></i></a>
+            <a href="#"><i class="fa fa-instagram"></i></a>
+            <a href="#"><i class="fa fa-dribbble"></i></a>
+        </div>
+    </div>
+    <!-- Offcanvas Menu End -->
+
+    <!-- Header Section Begin -->
+    <header class="header">
+        <div class="header__top">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-8">
+                        <ul class="header__top__left">
+                            <li><i class="fa fa-phone"></i> +250-788-454-647</li>
+                            <li><i class="fa fa-map-marker"></i> NYARUGENGE - KIGALI CITY </li>
+                            <li><i class="fa fa-clock-o"></i> Mon to Sat 9:00am to 18:00pm</li>
+                        </ul>
+                    </div>
+                    <div class="col-lg-4">
+                        <div class="header__top__right">
+                            <a href="#"><i class="fa fa-facebook"></i></a>
+                            <a href="#"><i class="fa fa-twitter"></i></a>
+                            <a href="#"><i class="fa fa-instagram"></i></a>
+                            <a href="#"><i class="fa fa-dribbble"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-2">
+                    <div class="header__logo">
+                        <a href="index.html"><img src="img/logo/cbn.png" width="70" alt=""></a>
+                    </div>
+                </div>
+                <div class="col-lg-10">
+                    <div class="header__menu__option">
+                        <nav class="header__menu">
+                            <ul>
+                                <li><a href="index.html">Home</a></li>
+                                <li><a href="about.html">About</a></li>
+                                <li ><a href="services.html">Services</a></li>
+                                <li><a href="contact.html">Contact</a></li>
+                                <li class="active"><a href="gallery.html">Gallery</a></li>
+                                <li><a href="faq.html">FAQ</a></li>
+                                <li ng-show="admin_link"><a href="admin.html">Admin</a></li>
+                            </ul>
+                        </nav>
+                        <div class="header__btn">
+                            <a href="#" data-toggle="modal" data-target="#book_appointment"
+                                class="primary-btn">Appointment</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="canvas__open">
+                <i class="fa fa-bars"></i>
+            </div>
+        </div>
+    </header>
+    <!-- Header Section End -->
+
+    <!-- Breadcrumb Section Begin -->
+    <section class="breadcrumb-option spad set-bg" data-setbg="img/breadcrumb-bg.jpg">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <div class="breadcrumb__text">
+                        <h2>Our Gallery</h2>
+                        <div class="breadcrumb__links">
+                            <a href="index.html">Home</a>
+                            <span>Gallery</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Breadcrumb Section End -->
+
+    <!-- Services Section Begin -->
+    <section class="services-page spad">       
+        <div class="container">
+            <main class="main">
+                <div class="container" > 
+                    <div class="card-image" ng-repeat = "img in galleryImages">
+                        <a href="api/gallery/{{img.image}}" data-fancybox="gallery"
+                            data-caption="{{img.caption}}">
+                            <img ng-src="api/gallery/{{img.image}}" alt="{{img.title}}">
+                        </a>
+                    </div>                    
+                </div>
+            </main>
+        </div>
+    </section>
+    <!-- Services Section End -->
+
+    <!-- Footer Section Begin -->
+    <footer class="footer">
+        <div class="footer__top">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-4 col-md-4">
+                        <div class="footer__logo">
+                            <a href="index.html"><img src="img/logo/logo2.jpg" width="100" alt=""></a>
+                        </div>
+                    </div>
+                    <!-- <div class="col-lg-4 col-md-8">
+                    <div class="footer__newslatter">
+                        <form action="#">
+                            <input type="text" placeholder="Email">
+                            <button type="submit" class="site-btn">Subscribe</button>
+                        </form>
+                    </div>
+                </div> -->
+                    <div class="col-lg-4 col-md-12">
+                        <div class="footer__social">
+                            <a href="#"><i class="fa fa-facebook"></i></a>
+                            <a href="#"><i class="fa fa-twitter"></i></a>
+                            <a href="#"><i class="fa fa-instagram"></i></a>
+                            <a href="#"><i class="fa fa-dribbble"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-2 col-md-3 col-sm-6">
+                    <div class="footer__widget">
+                        <h5>Company</h5>
+                        <ul>
+                            <li><a href="#" data-toggle="modal" data-target="#book_appointment">Appointment</a></li>
+                            <li><a href="about.html">About Us</a></li>
+                            <li><a href="services.html">Services</a></li>
+                            <li><a href="contact.html">Contact</a></li>
+                            <li><a href="faq.html">FAQ</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-3 col-sm-6">
+                    <div class="footer__widget">
+                        <h5>Quick links</h5>
+                        <ul>
+                            <li><a href="services.html">Breast exams</a></li>
+                            <li><a href="services.html">Contraception</a></li>
+                            <li><a href="services.html">General gynecology</a></li>
+                            <li><a href="services.html">General physicals</a></li>
+                            <li><a href="services.html">Pelvic exams</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 col-sm-6">
+                    <div class="footer__address">
+                        <h5>Contact Us</h5>
+                        <ul>
+                            <li><i class="fa fa-map-marker"></i> NYARUGENGE - KIGALI CITY</li>
+                            <li><i class="fa fa-phone"></i> +250-788-454-647</li>
+                            <li><i class="fa fa-envelope"></i> cliniquebiennaitre@yahoo.fr</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-12 col-sm-6">
+                    <div class="footer__map">
+                        <iframe src="https://maps.google.com/maps?q=clinique%20bien&t=&z=13&ie=UTF8&iwloc=&output=embed"
+                            height="190" style="border:0" allowfullscreen=""></iframe>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer__copyright">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-7">
+                        <div class="footer__copyright__text">
+                            <p>Copyright &copy;
+                                <script>document.write(new Date().getFullYear());</script> All rights reserved | CBN
+                        </div>
+                    </div>
+                    <div class="col-lg-5">
+                        <ul>
+                            <li>All Rights Reserved</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- Footer Section End -->
+
+    <!-- Modal -->
+    <!-- appointment -->
+    <!-- Modal -->
+    <div class="modal fade" id="book_appointment" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <!-- <h5 class="modal-title" id="exampleModalLabel">Book Appointment</h5> -->
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="consultation__form mt-1">
+                        <div class="section-title">
+                            <span>REQUEST FOR YOUR</span>
+                            <h2>Consultation</h2>
+                        </div>
+                        <form name="form">
+                            <input type="text" placeholder="Name" ng-model="client_name">
+                            <input type="text" placeholder="Email" ng-model="client_email" name="email"
+                                ng-pattern="/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/">
+                            <div class="text-danger" ng-if="form.email.$dirty&&form.email.$error.pattern">*Enter correct
+                                Email Address!</div>
+                            <input type="tel" placeholder="Phone" ng-model="client_phone" name="phone"
+                                ng-pattern="/^[0-9]{1,10}$/">
+                            <div class="text-danger" ng-if="form.phone.$dirty&&form.phone.$error.pattern">*Enter correct
+                                phone number!</div>
+                            <select class="form-control mb-3" ng-model="client_service">
+                                <option value="">Type of service</option>
+                                <option value="General Services">General Services</option>
+                                <option value="Obstetric care">Obstetric care</option>
+                                <option value="Echography">Echography</option>
+                                <option value="Laboratory">Laboratory</option>
+                                <option value="Delivery">Delivery</option>
+                                <option value="Gynecologique surgery">Gynecologique surgery</option>
+                                <option value="Neonatology">Neonatology</option>
+                            </select>
+
+                            <button type="submit" class="site-btn" ng-click="bookAppointment()">Book
+                                Appoitment</button>
+                        </form>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <!-- <button type="button" class="btn btn-primary">Save changes</button> -->
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Modal end -->
+    <script>
+        // Fancybox Configuration
+        $('[data-fancybox="gallery"]').fancybox({
+            buttons: [
+                "slideShow",
+                "thumbs",
+                "zoom",
+                "fullScreen",
+                "share",
+                "close"
+            ],
+            loop: false,
+            protect: true
+        });
+
+    </script>
+
+    <!-- angular -->
+    <script src="js/angular.js"></script>
+    <!-- custom js -->
+    <script src="js/custom.js"></script>
+    <!-- sweetAlert -->
+    <script src="js/sweetalert1.js"></script>
+    <!-- Js Plugins -->
+    <script src="js/jquery-3.3.1.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/jquery.magnific-popup.min.js"></script>
+    <script src="js/masonry.pkgd.min.js"></script>
+    <script src="js/jquery-ui.min.js"></script>
+    <!-- <script src="js/jquery.nice-select.min.js"></script> -->
+    <script src="js/jquery.slicknav.js"></script>
+    <script src="js/owl.carousel.min.js"></script>
+    <script src="js/main.js"></script>
+    <script src="node_modules/angular-utils-pagination/dirPagination.js"></script>
+    <!-- fancybox -->
+    <script src="js/fancybox.js"></script>
+
+</body>
+
+
+</html>

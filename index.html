@@ -11,6 +11,8 @@
     <!-- Google Font -->
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&amp;display=swap"
         rel="stylesheet">
+    <!-- favicon -->
+    <link rel="icon" href="img/logo/cbn-no.png">
 
     <!-- Css Styles -->
     <link rel="stylesheet" href="css/bootstrap.min.css" type="text/css">
@@ -34,7 +36,7 @@
     <div class="offcanvas-menu-overlay"></div>
     <div class="offcanvas-menu-wrapper">
         <div class="offcanvas__logo">
-            <a href="index.html"><img src="img/logo.png" alt=""></a>
+            <a href="index.html"><img src="img/logo/cbn.png" width="70" alt=""></a>
         </div>
         <div id="mobile-menu-wrap"></div>
         <div class="offcanvas__btn">
@@ -81,7 +83,7 @@
             <div class="row">
                 <div class="col-lg-2">
                     <div class="header__logo">
-                        <a href="index.html"><img src="img/logo.png" alt=""></a>
+                        <a href="index.html"><img src="img/logo/cbn.png" width="90" alt=""></a>
                     </div>
                 </div>
                 <div class="col-lg-10">
@@ -92,6 +94,7 @@
                                 <li><a href="about.html">About</a></li>
                                 <li><a href="services.html">Services</a></li>
                                 <li><a href="contact.html">Contact</a></li>
+                                <li><a href="gallery.html">Gallery</a></li>
                                 <li><a href="faq.html">FAQ</a></li>
                                 <li ng-show="admin_link"><a href="admin.html">Admin</a></li>
                             </ul>
@@ -110,7 +113,7 @@
     <!-- Header Section End -->
 
     <!-- Hero Section Begin -->
-    <section class="hero spad set-bg" data-setbg="img/hero-bg.jpg">
+    <section class="hero spad set-bg" data-setbg="img/ban-hero.jpg">
         <div class="container">
             <div class="row">
                 <div class="col-lg-6">
@@ -135,14 +138,18 @@
                             <span>REQUEST FOR YOUR</span>
                             <h2>Consultation</h2>
                         </div>
-                        <form  name="form">
+                        <form name="form">
                             <input type="text" placeholder="Name" ng-model="client_name">
-                            <input type="text" placeholder="Email" ng-model="client_email" name="email"  ng-pattern="/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/">
-                            <div class="text-danger" ng-if="form.email.$dirty&&form.email.$error.pattern">*Enter correct Email Address!</div>
-                            <input type="tel" placeholder="Phone" ng-model="client_phone" name="phone" ng-pattern="/^[0-9]{1,10}$/">
-                            <div class="text-danger" ng-if="form.phone.$dirty&&form.phone.$error.pattern">*Enter correct  phone number!</div>
-                           
-                            <select class="form-control mb-3" ng-model="client_service" >
+                            <input type="text" placeholder="Email" ng-model="client_email" name="email"
+                                ng-pattern="/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/">
+                            <div class="text-danger" ng-if="form.email.$dirty&&form.email.$error.pattern">*Enter correct
+                                Email Address!</div>
+                            <input type="tel" placeholder="Phone" ng-model="client_phone" name="phone"
+                                ng-pattern="/^[0-9]{1,10}$/">
+                            <div class="text-danger" ng-if="form.phone.$dirty&&form.phone.$error.pattern">*Enter correct
+                                phone number!</div>
+
+                            <select class="form-control mb-3" ng-model="client_service">
                                 <option value="">Type of service</option>
                                 <option value="General Services">General Services</option>
                                 <option value="Obstetric care">Obstetric care</option>
@@ -152,7 +159,7 @@
                                 <option value="Gynecologique surgery">Gynecologique surgery</option>
                                 <option value="Neonatology">Neonatology</option>
                             </select>
-                           
+
                             <button type="submit" class="site-btn" ng-click="bookAppointment()">Book
                                 Appoitment</button>
                         </form>
@@ -203,28 +210,28 @@
                     <div class="chooseus__item">
                         <img src="img/icons/ci-1.png" alt="">
                         <h5>Advanced equipment</h5>
-                        <p>Lorem ipsum amet, consectetur adipiscing elit, sed do eiusmod tempor cididunt facilisis.</p>
+                        <p>Majority of our patients normal, rare and complex conditions are treated well.</p>
                     </div>
                 </div>
                 <div class="col-lg-3 col-md-6 col-sm-6">
                     <div class="chooseus__item">
                         <img src="img/icons/ci-2.png" alt="">
                         <h5>Qualified doctors</h5>
-                        <p>Lorem ipsum amet, consectetur adipiscing elit, sed do eiusmod tempor cididunt facilisis.</p>
+                        <p>CBN Clinic doctor's expertise are some of the best and highly ranked in the region.</p>
                     </div>
                 </div>
                 <div class="col-lg-3 col-md-6 col-sm-6">
                     <div class="chooseus__item">
                         <img src="img/icons/ci-3.png" alt="">
                         <h5>Certified services</h5>
-                        <p>Lorem ipsum amet, consectetur adipiscing elit, sed do eiusmod tempor cididunt facilisis.</p>
+                        <p>Every year, more than a thousand people come to Clinique Bien N'aitre for care.</p>
                     </div>
                 </div>
                 <div class="col-lg-3 col-md-6 col-sm-6">
                     <div class="chooseus__item">
                         <img src="img/icons/ci-4.png" alt="">
                         <h5>Emergency care</h5>
-                        <p>Lorem ipsum amet, consectetur adipiscing elit, sed do eiusmod tempor cididunt facilisis.</p>
+                        <p>With our specialized team of doctors, imediate medical attention is our concern.</p>
                     </div>
                 </div>
             </div>
@@ -252,7 +259,7 @@
                 <div class="col-lg-6 col-md-6">
                     <div class="services__item">
                         <div class="services__item__icon">
-                            <span class="flaticon-044-aesthetic"></span>
+                            <img src="img/index/icons8-plastic-surgery-80.png" alt="">
                         </div>
                         <div class="services__item__text">
                             <h5>Breast exams</h5>
@@ -264,7 +271,7 @@
                 <div class="col-lg-6 col-md-6">
                     <div class="services__item">
                         <div class="services__item__icon">
-                            <span class="flaticon-027-beauty"></span>
+                            <img src="img/index/icons8-contraception-80.png" alt="">
                         </div>
                         <div class="services__item__text">
                             <h5>Contraception</h5>
@@ -276,7 +283,7 @@
                 <div class="col-lg-6 col-md-6">
                     <div class="services__item">
                         <div class="services__item__icon">
-                            <span class="flaticon-031-anatomy"></span>
+                            <img src="img/index/icons8-stethoscope-80.png" alt="">
                         </div>
                         <div class="services__item__text">
                             <h5>General gynecology </h5>
@@ -288,7 +295,7 @@
                 <div class="col-lg-6 col-md-6">
                     <div class="services__item">
                         <div class="services__item__icon">
-                            <span class="flaticon-008-abdominoplasty"></span>
+                            <img src="img/index/icons8-heart-monitor-80.png" alt="">
                         </div>
                         <div class="services__item__text">
                             <h5>General physicals</h5>
@@ -300,7 +307,7 @@
                 <div class="col-lg-6 col-md-6">
                     <div class="services__item">
                         <div class="services__item__icon">
-                            <span class="flaticon-008-abdominoplasty"></span>
+                            <img src="img/index/icons8-syringe-80.png" alt="">
                         </div>
                         <div class="services__item__text">
                             <h5>Immunizations and injections</h5>
@@ -312,7 +319,7 @@
                 <div class="col-lg-6 col-md-6">
                     <div class="services__item">
                         <div class="services__item__icon">
-                            <span class="flaticon-008-abdominoplasty"></span>
+                            <img src="img/index/icons8-uterus-80.png" alt="">
                         </div>
                         <div class="services__item__text">
                             <h5>Pelvic exams</h5>
@@ -383,32 +390,27 @@
     <!-- Team Section End -->
 
     <!-- Gallery Begin -->
-    <!-- <div class="gallery container">
-        <div class="gallery__container">
-            <div class="grid-sizer"></div>
-            <div class="gc__item set-bg" data-setbg="img/gallery/gallery-1.jpg">
-                <a href="img/gallery/gallery-1.jpg" class="image-popup"><i class="fa fa-search-plus"></i></a>
+    <section class="mt-5">
+        <div class="row mt-3 mb-5">
+            <div class="col-lg-10 col-md-10 col-sm-12">
+                <div class="section-title text-center">
+                    <h2 class="text-default">Our Gallery</h2>
+                </div>
             </div>
-            <div class="gc__item set-bg" data-setbg="img/gallery/gallery-2.jpg">
-                <a href="img/gallery/gallery-2.jpg" class="image-popup"><i class="fa fa-search-plus"></i></a>
-            </div>
-            <div class="gc__item set-bg" data-setbg="img/gallery/gallery-3.jpg">
-                <a href="img/gallery/gallery-3.jpg" class="image-popup"><i class="fa fa-search-plus"></i></a>
-            </div>
-            <div class="gc__item gc__item__large set-bg" data-setbg="img/gallery/gallery-4.jpg">
-                <a href="img/gallery/gallery-4.jpg" class="image-popup"><i class="fa fa-search-plus"></i></a>
-            </div>
-            <div class="gc__item set-bg" data-setbg="img/gallery/gallery-5.jpg">
-                <a href="img/gallery/gallery-5.jpg" class="image-popup"><i class="fa fa-search-plus"></i></a>
-            </div>
-            <div class="gc__item set-bg" data-setbg="img/gallery/gallery-6.jpg">
-                <a href="img/gallery/gallery-6.jpg" class="image-popup"><i class="fa fa-search-plus"></i></a>
-            </div>
-            <div class="gc__item set-bg" data-setbg="img/gallery/gallery-7.jpg">
-                <a href="img/gallery/gallery-7.jpg" class="image-popup"><i class="fa fa-search-plus"></i></a>
+            <div class="col-lg-2 col-md-10 col-sm-12">
+                <a href="gallery.html" class="btn btn-default">All Images</a>
             </div>
         </div>
-    </div> -->
+        
+        <div class="gallery container">
+            <div class="gallery__container" >
+                <div class="grid-sizer"></div>
+                <div class="gc__item set-bg" data-setbg="api/gallery/{{img.image}}" ng-repeat="img in allImages| limitTo:4 ">
+                    <a href="api/gallery/{{img.image}}" class="image-popup"><i class="fa fa-search-plus"></i></a>
+                </div>               
+            </div>
+        </div>
+    </section>
     <!-- Gallery End -->
 
     <!-- Latest News Begin -->
@@ -462,9 +464,9 @@
         <div class="footer__top">
             <div class="container">
                 <div class="row">
-                    <div class="col-lg-4 col-md-4">
+                    <div class="col-lg-6 col-md-4">
                         <div class="footer__logo">
-                            <a href="#"><img src="img/footer-logo.png" alt=""></a>
+                            <a href="index.html"><img src="img/logo/logo2.jpg" width="100" alt=""></a>
                         </div>
                     </div>
                     <!-- <div class="col-lg-4 col-md-8">
@@ -475,7 +477,7 @@
                             </form>
                         </div>
                     </div> -->
-                    <div class="col-lg-4 col-md-12">
+                    <div class="col-lg-6 col-md-12">
                         <div class="footer__social">
                             <a href="#"><i class="fa fa-facebook"></i></a>
                             <a href="#"><i class="fa fa-twitter"></i></a>

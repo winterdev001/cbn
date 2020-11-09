@@ -11,6 +11,8 @@
     <!-- Google Font -->
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&amp;display=swap"
         rel="stylesheet">
+        <!-- favicon -->
+    <link rel="icon" href="img/logo/cbn-no.png">
 
     <!-- Css Styles -->
     <link rel="stylesheet" href="css/bootstrap.min.css" type="text/css">
@@ -37,7 +39,7 @@
     <div class="offcanvas-menu-overlay"></div>
     <div class="offcanvas-menu-wrapper">
         <div class="offcanvas__logo">
-            <a href="index.html"><img src="img/logo.png" alt=""></a>
+            <a href="index.html"><img src="img/logo/cbn.png" width="70" alt=""></a>
         </div>
         <div id="mobile-menu-wrap"></div>
         <div class="offcanvas__btn">
@@ -84,7 +86,7 @@
             <div class="row">
                 <div class="col-lg-2">
                     <div class="header__logo">
-                        <a href="index.html"><img src="img/logo.png" alt=""></a>
+                        <a href="index.html"><img src="img/logo/cbn.png" width="70" alt=""></a>
                     </div>
                 </div>
                 <div class="col-lg-10">
@@ -95,6 +97,7 @@
                                 <li><a href="about.html">About</a></li>
                                 <li><a href="services.html">Services</a></li>
                                 <li><a href="contact.html">Contact</a></li>
+                                <li><a href="gallery.html">Gallery</a></li>
                                 <li><a href="faq.html">FAQ</a></li>
                                 <li class="active"><a href="admin.html"> Admin</a></li>
                             </ul>
@@ -121,7 +124,7 @@
                     <div class="breadcrumb__text">
                         <h2>Our Services</h2>
                         <div class="breadcrumb__links">
-                            <a href="index-2.html">Home</a>
+                            <a href="index.html">Home</a>
                             <span>Services</span>
                         </div>
                     </div>
@@ -170,10 +173,17 @@
                                     <div class="card-heading link3">
                                         <a data-toggle="collapse" data-target="#collapseThree"
                                             ng-click="getLinks(link3='link3')">
+                                            Gallery
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="card">
+                                    <div class="card-heading link4">
+                                        <a data-toggle="collapse" data-target="#collapseFour"
+                                            ng-click="getLinks(link4='link4')">
                                             Settings
                                         </a>
                                     </div>
-
                                 </div>
                                 <div class="card">
                                     <div class="card-heading link4">
@@ -256,7 +266,9 @@
                                             <td>{{msg.message | limitTo :20}}...</td>
                                             <td>{{msg.created_at}}</td>
                                             <td><button class="btn btn-warning text-light"
-                                                    ng-click="checkMessage(msg.id)"><span ng-if="msg.status == 1">Checked</span> <span ng-if="msg.status == 0">Check</span></button></td>
+                                                    ng-click="checkMessage(msg.id)"><span
+                                                        ng-if="msg.status == 1">Checked</span> <span
+                                                        ng-if="msg.status == 0">Check</span></button></td>
                                         </tr>
                                     </tbody>
                                 </table>
@@ -268,6 +280,73 @@
                             </div>
                         </div>
                         <!-- messages end -->
+                        <!-- gallery begins -->
+                        <div class="gallery" ng-show="gallery">
+                            <div class="card">
+                                <strong class="card-header">Upload Image</strong>
+                                <div class="card-body">
+                                    <form role="form" ng-submit="getImage($event)">
+                                        <div class="form-group mb-3">
+                                            <label for="img">Choose File</label>
+                                            <input type="file" file-input="files" class="form-control-file"
+                                                ng-model="image_name" name="img" id="img">
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <div class="form-group mb-3">
+                                                    <label>Title</label><br>
+                                                    <input type="text" ng-model="image_title" class="form-control"
+                                                        placeholder="Title">
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div class="form-group mb-3">
+                                                    <label>Caption</label><br>
+                                                    <input type="text" ng-model="image_caption" class="form-control"
+                                                        placeholder="Caption">
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="text-center">
+                                            <button class="btn btn-default" type="submit ">Upload Image</button>
+                                        </div>
+
+                                    </form>
+                                </div>
+                            </div>
+                            <!-- all images -->
+                            <h5 class="mt-5">All Images</h5>
+                            <table class="table table-stripped table-bordered table-hover mt-1">
+                                <thead>
+                                    <tr>
+                                        <th scope="col">Image</th>
+                                        <th scope="col">Title</th>
+                                        <th scope="col">Caption</th>
+                                        <th></th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr dir-paginate="img in allImages|itemsPerPage:5">
+                                        <th scope="row"><img ng-src="api/gallery/{{img.image}}" width="40" alt=""></th>
+                                        <td>{{img.title}}</td>
+                                        <td>{{img.caption}}</td>
+                                        <td><button class="btn btn-default text-light" ng-click="showImage(img.id)"><i
+                                                    class="fa fa-external-link"></i></button></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            <div class="badge badge-default p-2  float-right">
+                                <dir-pagination-controls
+                                    default="node_modules/angular-utils-pagination/dirPagination.tpl.html" max-size="5"
+                                    direction-links="true" boundary-links="true"
+                                    class=" font-weight-bold spacex text-warning"
+                                    style="letter-spacing: 13px;font-size: 15px">
+                                </dir-pagination-controls>
+                            </div>
+
+                        </div>
+                        <!-- gallery end -->
                         <!-- settings begin -->
                         <div class="settings" ng-show="settings">
                             <div class="card">
@@ -316,7 +395,7 @@
                 <div class="row">
                     <div class="col-lg-4 col-md-4">
                         <div class="footer__logo">
-                            <a href="#"><img src="img/footer-logo.png" alt=""></a>
+                            <a href="index.html"><img src="img/logo/logo2.jpg" width="100" alt=""></a>
                         </div>
                     </div>
                     <div class="col-lg-4 col-md-12">
@@ -466,26 +545,28 @@
                 <div class="modal-header">
                     <h5 class="modal-title" id="exampleModalLabel">{{msg_name}}'s Message</h5>
                     <!-- <span class="badge badge-warning">{{appoint_status}}</span> -->
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close" ng-click="refreshMessage()">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"
+                        ng-click="refreshMessage()">
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
                 <div class="modal-body">
                     <p class="modal-text">Status:
-                        <span
-                            ng-class="{'badge badge-success' :msg_status== 1}">
+                        <span ng-class="{'badge badge-success' :msg_status== 1}">
                             <strong>{{msg_status_after}}</strong></span></p>
                     <p class="modal-text">Client Name: <strong>{{msg_name}}</strong></p>
                     <p class="modal-text">Client Email: <strong>{{msg_email}}</strong></p>
-                    <p class="modal-text">Message : <p class="msg_border p-2" >
-                        <strong >{{msg_message}}</strong>
-                    </p></p>
+                    <p class="modal-text">Message :
+                    <p class="msg_border p-2">
+                        <strong>{{msg_message}}</strong>
+                    </p>
+                    </p>
                     <p class="modal-text">Date Created : <strong class="text-muted">{{msg_created_at}}</strong></p>
                 </div>
-                <div class="modal-footer">                   
-                    <button type="button" class="btn btn-danger"
-                        ng-click="deleteMessage(msg_id)">Delete</button>
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal" ng-click="refreshMessage()">Close</button>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger" ng-click="deleteMessage(msg_id)">Delete</button>
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal"
+                        ng-click="refreshMessage()">Close</button>
                     <!-- <button type="button" class="btn btn-primary">Save changes</button> -->
                 </div>
             </div>
@@ -539,6 +620,92 @@
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                     <!-- <button type="button" class="btn btn-primary">Save changes</button> -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- show image -->
+    <div class="modal fade" id="show_image" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Image details</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-md-7">
+                                    <img ng-src="api/gallery/{{img_name}}" alt="{{img_title}}">
+                                </div>
+                                <div class="col-md-5">
+                                    <p class="modal-text">Title: <strong>{{img_title}}</strong></p>
+                                    <p class="modal-text">Caption: <strong>{{img_caption}}</strong></p>
+                                    <p class="modal-text">Date Created : <strong
+                                            class="text-muted">{{img_created_at}}</strong></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" ng-click="editImage(img_id)">Edit</button>
+                    <button type="button" class="btn btn-danger" ng-click="deleteMessage(msg_id)">Delete</button>
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal"
+                        ng-click="refreshMessage()">Close</button>
+                    <!-- <button type="button" class="btn btn-primary">Save changes</button> -->
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- update image -->
+    <div class="modal fade" id="edit_image" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-md">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Edit Image</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form role="form">
+                        <div class="form-group mb-3">
+                            <label for="img">Choose File</label>
+                            <input type="file" file-input="files" class="form-control-file" ng-model="img_name"
+                                name="img" id="img_up">
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group mb-3">
+                                    <label>Title</label><br>
+                                    <input type="text" ng-model="img_title" class="form-control" >
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group mb-3">
+                                    <label>Caption</label><br>
+                                    <input type="text" ng-model="img_caption" class="form-control"
+                                       >
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="text-center">
+                            <button class="btn btn-default" type="submit" ng-click="updateImage(img_id)">Update </button>
+                        </div>
+
+                    </form>
+
+                </div>
+                <div class="modal-footer">                    
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal"
+                        >Close</button>
                 </div>
             </div>
         </div>
