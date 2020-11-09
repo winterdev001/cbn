@@ -1,7 +1,8 @@
 <?php
-    $con=mysqli_connect('localhost','root','','cbn');
+include 'config.php';
+    // $conn=mysqli_connect('localhost','root','','cbn');
     $r="select * from appointment order by status desc";
-    $q=mysqli_query($con,$r);
+    $q=mysqli_query($conn,$r);
     if(mysqli_num_rows($q) > 0){
       header("Content-Type: application/json");  
       while($row=mysqli_fetch_array($q))

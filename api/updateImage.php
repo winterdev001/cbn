@@ -1,5 +1,6 @@
 <?php  
- $connect = mysqli_connect("localhost", "root", "", "cbn");  
+include 'config.php';
+//  $conn = mysqli_connect("localhost", "root", "", "cbn");  
     $id = $_POST['id'];
     // $title = $_POST['title'];
     // $caption = $_POST['caption'];  
@@ -7,7 +8,7 @@
     // echo $id .','.$title.','.$caption . ','.$file;
      
     $q = "SELECT * from gallery where id ='$id' ";
-    $q_res = mysqli_query($connect,$q);
+    $q_res = mysqli_query($conn,$q);
     $img = mysqli_fetch_assoc($q_res);
     // echo "old image is ".$img['image'];
     if(mysqli_num_rows($q_res) != 0){        
@@ -15,7 +16,7 @@
         $caption = $_POST['caption'];
         $file = $_FILES['file']['name'];
         $insertQuery = "update gallery set image = '$file' , title = '$title' , caption = '$caption' where id = '$id'";  
-        $res = mysqli_query($connect, $insertQuery);
+        $res = mysqli_query($conn, $insertQuery);
         if($res){  
             unlink('gallery/'.$img['image']);
             $path = 'gallery/' . $_FILES['file']['name']; 
@@ -23,10 +24,10 @@
             exit('success');                    
         }  
         else {  
-            echo 'Error'. $connect ->error;  
+            echo 'Error'. $conn ->error;  
         }
         // $check = "select * from gallery where id = $id";
-        // $check_res = mysqli_query($connect,$check);
+        // $check_res = mysqli_query($conn,$check);
         // $get_img = mysqli_fetch_assoc($check_res);
         // if($get_img['image'] == $file){
         //     echo 'success'; 
