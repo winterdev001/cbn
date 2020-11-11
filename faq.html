@@ -11,8 +11,8 @@
   <!-- Google Font -->
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&amp;display=swap"
     rel="stylesheet">
-    <!-- favicon -->
-    <link rel="icon" href="img/logo/cbn-no.png">
+  <!-- favicon -->
+  <link rel="icon" href="img/logo/cbn-no.png">
 
   <!-- Css Styles -->
   <link rel="stylesheet" href="css/bootstrap.min.css" type="text/css">
@@ -338,7 +338,8 @@
     </div>
   </section>
   <!-- faq section end -->
-
+  <!-- Back to top button -->
+  <a id="bac-to-top"></a>
   <!-- Footer Section Begin -->
   <footer class="footer">
     <div class="footer__top">
@@ -374,7 +375,7 @@
           <div class="footer__widget">
             <h5>Company</h5>
             <ul>
-              <li><a href="#" data-toggle= "modal" data-target="#book_appointment">Appointment</a></li>
+              <li><a href="#" data-toggle="modal" data-target="#book_appointment">Appointment</a></li>
               <li><a href="about.html">About Us</a></li>
               <li><a href="services.html">Services</a></li>
               <li><a href="contact.html">Contact</a></li>
@@ -457,7 +458,7 @@
                 Address!</div>
               <input type="tel" placeholder="Phone" ng-model="client_phone" name="phone" ng-pattern="/^[0-9]{1,10}$/">
               <div class="text-danger" ng-if="form.phone.$dirty&&form.phone.$error.pattern">*Enter correct phone number!
-              </div>              
+              </div>
               <select class="form-control mb-3" ng-model="client_service">
                 <option value="">Type of service</option>
                 <option value="General Services">General Services</option>
@@ -499,6 +500,24 @@
   <script src="js/owl.carousel.min.js"></script>
   <script src="js/main.js"></script>
   <script src="node_modules/angular-utils-pagination/dirPagination.js"></script>
+  <script>
+    var btn = $('#bac-to-top');
+
+    $(window).scroll(function () {
+      if ($(window).scrollTop() > 300) {
+        btn.addClass('show');
+      } else {
+        btn.removeClass('show');
+      }
+    });
+
+    btn.on('click', function (e) {
+      e.preventDefault();
+      $('html, body').animate({ scrollTop: 0 }, '300');
+    });
+
+
+  </script>
 
 </body>
 

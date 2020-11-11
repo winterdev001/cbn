@@ -401,13 +401,14 @@
                 <a href="gallery.html" class="btn btn-default">All Images</a>
             </div>
         </div>
-        
+
         <div class="gallery container">
-            <div class="gallery__container" >
+            <div class="gallery__container">
                 <div class="grid-sizer"></div>
-                <div class="gc__item set-bg" data-setbg="api/gallery/{{img.image}}" ng-repeat="img in allImages| limitTo:4 ">
+                <div class="gc__item set-bg" data-setbg="api/gallery/{{img.image}}"
+                    ng-repeat="img in allImages| limitTo:4 ">
                     <a href="api/gallery/{{img.image}}" class="image-popup"><i class="fa fa-search-plus"></i></a>
-                </div>               
+                </div>
             </div>
         </div>
     </section>
@@ -458,7 +459,8 @@
         </div>
     </section>
     <!-- Latest News End -->
-
+    <!-- Back to top button -->
+    <a id="bac-to-top"></a>
     <!-- Footer Section Begin -->
     <footer class="footer">
         <div class="footer__top">
@@ -570,6 +572,25 @@
     <script src="js/owl.carousel.min.js"></script>
     <script src="js/main.js"></script>
     <script src="node_modules/angular-utils-pagination/dirPagination.js"></script>
+    <!-- back to top btn -->
+    <script>
+        var btn = $('#bac-to-top');
+
+        $(window).scroll(function () {
+            if ($(window).scrollTop() > 300) {
+                btn.addClass('show');
+            } else {
+                btn.removeClass('show');
+            }
+        });
+
+        btn.on('click', function (e) {
+            e.preventDefault();
+            $('html, body').animate({ scrollTop: 0 }, '300');
+        });
+
+
+    </script>
 
 </body>
 

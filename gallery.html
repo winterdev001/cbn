@@ -149,7 +149,8 @@
         </div>
     </section>
     <!-- Services Section End -->
-
+    <!-- Back to top button -->
+    <a id="bac-to-top"></a>
     <!-- Footer Section Begin -->
     <footer class="footer">
         <div class="footer__top">
@@ -331,6 +332,24 @@
     <script src="node_modules/angular-utils-pagination/dirPagination.js"></script>
     <!-- fancybox -->
     <script src="js/fancybox.js"></script>
+    <script>
+        var btn = $('#bac-to-top');
+
+        $(window).scroll(function () {
+            if ($(window).scrollTop() > 300) {
+                btn.addClass('show');
+            } else {
+                btn.removeClass('show');
+            }
+        });
+
+        btn.on('click', function (e) {
+            e.preventDefault();
+            $('html, body').animate({ scrollTop: 0 }, '300');
+        });
+
+
+    </script>
 
 </body>
 

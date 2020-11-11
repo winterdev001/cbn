@@ -110,7 +110,8 @@
     $(".datepicker").datepicker({
         minDate: 0
     });   
-   
+
 
 })(jQuery);
+
 
