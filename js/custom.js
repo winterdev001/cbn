@@ -331,6 +331,7 @@ app.controller('galleryCtlr', function ($scope, $http, $window) {
     }
 
   }
+  
 
   $scope.getGallery = () => {
     $http.get('api/getGallery.php').then((response) => {
@@ -339,8 +340,13 @@ app.controller('galleryCtlr', function ($scope, $http, $window) {
           title: "No photos yet"
         });
       } else {
-        console.log(response.data)
-        $scope.galleryImages = response.data;
+        // console.log(response.data)        
+        $scope.galleryImages = response.data;  
+        if($scope.galleryImages.length <= 21 ) {
+          $scope.show_gallery_pagination = false;
+        }else {
+          $scope.show_gallery_pagination = true;
+        }      
       }
     });
   }
@@ -1050,6 +1056,8 @@ app.controller('adminCtlr', function ($scope, $http, $window) {
   // }
 
 });
+
+angular.module('infinite-scroll').value('THROTTLE_MILLISECONDS', 250);
 
 // image uploading
 app.directive("fileInput", function ($parse) {

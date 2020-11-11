@@ -11,7 +11,7 @@
     <!-- Google Font -->
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&amp;display=swap"
         rel="stylesheet">
-        <!-- favicon -->
+    <!-- favicon -->
     <link rel="icon" href="img/logo/cbn-no.png">
 
     <!-- Css Styles -->
@@ -94,7 +94,7 @@
                             <ul>
                                 <li><a href="index.html">Home</a></li>
                                 <li><a href="about.html">About</a></li>
-                                <li ><a href="services.html">Services</a></li>
+                                <li><a href="services.html">Services</a></li>
                                 <li><a href="contact.html">Contact</a></li>
                                 <li class="active"><a href="gallery.html">Gallery</a></li>
                                 <li><a href="faq.html">FAQ</a></li>
@@ -134,16 +134,29 @@
     <!-- Breadcrumb Section End -->
 
     <!-- Services Section Begin -->
-    <section class="services-page spad">       
+    <section class="services-page spad">
         <div class="container">
             <main class="main">
-                <div class="container" > 
-                    <div class="card-image" ng-repeat = "img in galleryImages">
-                        <a href="api/gallery/{{img.image}}" data-fancybox="gallery"
-                            data-caption="{{img.caption}}">
+                <div class="container">
+                    <div class="card-image" dir-paginate="img in galleryImages |itemsPerPage:20">
+                        <a href="api/gallery/{{img.image}}" data-fancybox="gallery" data-caption="{{img.caption}}">
                             <img ng-src="api/gallery/{{img.image}}" alt="{{img.title}}">
                         </a>
-                    </div>                    
+                    </div>
+                </div>
+                <div class="d-flex justify-content-center" >
+                    <div class="row mt-5">
+                        <div class="col-lg-12 col-md-12 col-sm-12" ng-show="show_gallery_pagination">
+                            <div class="badge badge-default p-2 ">
+                                <dir-pagination-controls
+                                    default="node_modules/angular-utils-pagination/dirPagination.tpl.html" max-size="12"
+                                    direction-links="true" boundary-links="true"
+                                    class=" font-weight-bold spacex text-warning"
+                                    style="letter-spacing: 13px;font-size: 15px">
+                                </dir-pagination-controls>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </main>
         </div>
@@ -329,7 +342,7 @@
     <script src="js/jquery.slicknav.js"></script>
     <script src="js/owl.carousel.min.js"></script>
     <script src="js/main.js"></script>
-    <script src="node_modules/angular-utils-pagination/dirPagination.js"></script>
+    <script src="node_modules/angular-utils-pagination/dirPagination.js"></script>   
     <!-- fancybox -->
     <script src="js/fancybox.js"></script>
     <script>
