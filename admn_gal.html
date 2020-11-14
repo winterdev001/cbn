@@ -11,7 +11,7 @@
     <!-- Google Font -->
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&amp;display=swap"
         rel="stylesheet">
-        <!-- favicon -->
+    <!-- favicon -->
     <link rel="icon" href="img/logo/cbn-no.png">
 
     <!-- Css Styles -->
@@ -29,7 +29,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 
-<body ng-app="myApp" ng-controller="adminCtlr" ng-click="refreshMessage()">
+<body ng-app="myApp" ng-controller="admingalCtlr" ng-click="refreshMessage()">
     <!-- Page Preloder -->
     <!-- <div id="preloder">
         <div class="loader"></div>
@@ -116,24 +116,6 @@
     </header>
     <!-- Header Section End -->
 
-    <!-- Breadcrumb Section Begin -->
-    <!-- <section class="breadcrumb-option spad set-bg" data-setbg="img/breadcrumb-bg.jpg">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12 text-center">
-                    <div class="breadcrumb__text">
-                        <h2>Our Services</h2>
-                        <div class="breadcrumb__links">
-                            <a href="index.html">Home</a>
-                            <span>Services</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section> -->
-    <!-- Breadcrumb Section End -->
-
     <!-- Services Section Begin -->
     <section class="services-page spad">
         <div class="container">
@@ -153,7 +135,7 @@
                         <div class="services__accordion">
                             <div class="accordion" id="accordionExample">
                                 <div class="card">
-                                    <div class="card-heading link1 active">
+                                    <div class="card-heading link1 ">
                                         <a data-toggle="collapse" data-target="#collapseOne"
                                             ng-click="getLinks(link1='link1')">
                                             Appointments
@@ -170,8 +152,9 @@
 
                                 </div>
                                 <div class="card">
-                                    <div class="card-heading link3">
-                                        <a href="admn_gal.html" >
+                                    <div class="card-heading link3 active">
+                                        <a href="#" data-toggle="collapse" data-target="#collapseThree"
+                                            ng-click="getLinks(link3='link3')">
                                             Gallery
                                         </a>
                                     </div>
@@ -292,31 +275,32 @@
                             <div class="card">
                                 <strong class="card-header">Upload Image</strong>
                                 <div class="card-body">
-                                    <form role="form" >
+                                    <form role="form" ng-submit="checkForm()" method="post" action="api/getImages.php" enctype="multipart/form-data">
                                         <div class="form-group mb-3">
                                             <label for="img">Choose File</label>
                                             <input type="file" file-input="files" class="form-control-file"
-                                                ng-model="image_name" name="img" id="img">
+                                                ng-model="image_name" name="img" id="img" required>
                                         </div>
                                         <div class="row">
                                             <div class="col-md-6">
                                                 <div class="form-group mb-3">
                                                     <label>Title</label><br>
                                                     <input type="text" ng-model="image_title" class="form-control"
-                                                        placeholder="Title">
+                                                        placeholder="Title" name="title" required>
                                                 </div>
                                             </div>
                                             <div class="col-md-6">
                                                 <div class="form-group mb-3">
                                                     <label>Caption</label><br>
                                                     <input type="text" ng-model="image_caption" class="form-control"
-                                                        placeholder="Caption">
+                                                        placeholder="Caption" name="caption" required>
                                                 </div>
                                             </div>
                                         </div>
 
                                         <div class="text-center">
-                                            <button class="btn btn-default" type="button" ng-click="getImage()">Upload Image</button>
+                                            <button class="btn btn-default"  ng-disabled="form.$invalid"  type="submit" >Upload
+                                                Image</button>
                                         </div>
 
                                     </form>
@@ -493,13 +477,13 @@
                     </button>
                 </div>
                 <div class="modal-body">
-                    <form  method="post" action="api/upload.php" enctype="multipart/form-data">
+                    <form method="post" action="api/upload.php" enctype="multipart/form-data">
                         <div class="form-group mb-3">
                             <label for="prof-image">Choose File</label>
                             <!-- <input type="file" file-input="files" class="form-control-file"
                                 id="prof-image"> -->
-                                <input type="file" class="form-control-file" ng-model="profile_img"
-                                name="img" id="prof-image">
+                            <input type="file" class="form-control-file" ng-model="profile_img" name="img"
+                                id="prof-image">
                         </div>
                         <div class="text-center">
                             <button class="btn btn-default" type="submit">Upload</button>
@@ -694,28 +678,27 @@
                             <div class="col-md-6">
                                 <div class="form-group mb-3">
                                     <label>Title</label><br>
-                                    <input type="text" ng-model="img_title" class="form-control" >
+                                    <input type="text" ng-model="img_title" class="form-control">
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="form-group mb-3">
                                     <label>Caption</label><br>
-                                    <input type="text" ng-model="img_caption" class="form-control"
-                                       >
+                                    <input type="text" ng-model="img_caption" class="form-control">
                                 </div>
                             </div>
                         </div>
 
                         <div class="text-center">
-                            <button class="btn btn-default" type="submit" ng-click="updateImage(img_id)">Update </button>
+                            <button class="btn btn-default" type="submit" ng-click="updateImage(img_id)">Update
+                            </button>
                         </div>
 
                     </form>
 
                 </div>
-                <div class="modal-footer">                    
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal"
-                        >Close</button>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                 </div>
             </div>
         </div>
